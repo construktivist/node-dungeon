@@ -1,0 +1,24 @@
+{
+  "name": "dungeon",
+  "version": "1.0.0",
+  "description": "A CLI dungeon crawler for node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/construktivist/node-dungeon.git"
+  },
+  "keywords": [
+    "CLI",
+    "game",
+    "dungeon"
+  ],
+  "author": "Keegan Kelly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/construktivist/node-dungeon/issues"
+  },
+  "homepage": "https://github.com/construktivist/node-dungeon#readme"
+}
