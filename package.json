@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/construktivist/node-dungeon/issues"
   },
-  "homepage": "https://github.com/construktivist/node-dungeon#readme"
+  "homepage": "https://github.com/construktivist/node-dungeon#readme",
+  "dependencies": {
+    "inquirer": "^6.2.1"
+  }
 }
