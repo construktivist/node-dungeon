@@ -11,6 +11,6 @@ exports.printers = {
 
   normal: (string) => {
     console.log(string);
-  }
-  
+  },
+
 };
