@@ -1,5 +1,5 @@
 
-exports.printers = {
+exports.text = {
 
   border: (string) => {
     console.log(
@@ -9,8 +9,14 @@ exports.printers = {
     );
   },
 
+  header: (string) => {
+    console.log(
+      "=====" + string + "===== \n"
+    );
+  },
+
   normal: (string) => {
     console.log(string);
-  },
+  }
 
 };
