@@ -8,7 +8,7 @@ exports.character = {
       message: 'Select your character\'s race:',
       choices: ['Human', 'Elf', 'Dwarf'],
       filter: function(val) {
-        return val.toLowerCase;
+        return val.toLowerCase();
       }
     },
     {
@@ -38,14 +38,16 @@ exports.character = {
           name: 'Shield'
         }
       ],
-      filter: function(val) {
-        return val.toLowerCase;
+      validate: function(val){
+        if (val.length > 2){
+          return "ERROR: You can only pick TWO weapons!";
+        }
+        return true;
       },
-      // validate: function(answer){
-      //   if (answer.length > 2){
-      //     return "ERROR: You can only pick TWO weapons!";
+      // filter: function(answers){
+      //   for (var i = 0; i < answers.length; i++) {
+      //     answers[i].toLowerCase();
       //   }
-      //   return true;
       // }
     },
     {
@@ -54,7 +56,7 @@ exports.character = {
       message: 'Pick your character\'s armor:',
       choices: ['Knight\'s Plate', 'Thief\'s Vest', 'Warlock\'s Robes'],
       filter: function(val) {
-        return val.toLowerCase;
+        return val.toLowerCase();
       }
     },
     {
@@ -63,7 +65,7 @@ exports.character = {
       message: 'Select a trinket:',
       choices: ['Necklace of the Ogre', 'Ring of the Vampire', 'Pendant of the Necromancer'],
       filter: function(val) {
-        return val.toLowerCase;
+        return val.toLowerCase();
       }
     },
 
@@ -71,6 +73,7 @@ exports.character = {
   new: function() {
     console.log("Character creation");
     inquirer.prompt(this.characterQuestions).then(answers => {
+      console.log(answers);
       console.log(JSON.stringify(answers));
     });
   }
