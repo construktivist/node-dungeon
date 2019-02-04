@@ -51,7 +51,7 @@ exports.character = {
           type: 'list',
           name: 'armor',
           message: 'Pick your character\'s armor:',
-          choices: ['Knight\'s Plate', 'Thief\'s Vest', 'Warlock\'s Robes'],
+          choices: ["Knight's Plate", "Thief's Vest", "Warlocks Robe's", "Cleric's Chainmail"],
           filter: function(val) {
             return val.toLowerCase();
           }
@@ -65,11 +65,19 @@ exports.character = {
             return val.toLowerCase();
           }
         },
+        {
+          type: 'input',
+          name: 'name',
+          message: 'What is your character name?:',
+          filter: function(val) {
+            return val.toLowerCase();
+          }
+        },
       ]
     ).then(answers => {
       console.log(answers);
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
-      console.log(playerCharacter.race);
+      console.log(playerCharacter.name);
       });
   }
 };
