@@ -1,5 +1,5 @@
 var inquirer = require('inquirer');
-
+var Character = require('./buildCharacter.js');
 exports.character = {
   new: function(){
     inquirer.prompt(
@@ -67,9 +67,9 @@ exports.character = {
         },
       ]
     ).then(answers => {
-       // console.log(answers);
-       // console.log(JSON.stringify(answers));
-       return answers;
+      console.log(answers);
+      var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
+      console.log(playerCharacter.race);
       });
   }
 };
