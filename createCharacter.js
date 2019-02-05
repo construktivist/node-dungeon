@@ -1,5 +1,6 @@
 var inquirer = require('inquirer');
 var Character = require('./buildCharacter.js');
+var setPlayerStats = require('./playerStats');
 var print = require('./printer.js');
 
 exports.character = {
@@ -77,27 +78,9 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      console.log(answers);
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
-      this.setRaceStats(playerCharacter.race);
+      setPlayerStats.stats.static(playerCharacter);
       console.log(playerCharacter);
       });
   },
-
-  setRaceStats: function(race){
-    switch (race) {
-      case 'elf':
-          playerCharacter.hitpoints = 12;
-        break;
-      case 'human':
-          playerCharacter.hitpoints = 15;
-        break;
-        case 'dwarf':
-          playerCharacter.hitpoints = 18;
-          break;
-      default:
-        print.text.normal("Oops. Something went wrong :/")
-
-    }
-  }
 };
