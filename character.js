@@ -1,0 +1,1 @@
+{"name":"bill","race":"human","armor":"knight's plate","trinket":"necklace of the ogre","hitpoints":15}

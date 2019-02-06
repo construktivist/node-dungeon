@@ -1,3 +1,4 @@
+var fs = require('fs');
 var inquirer = require('inquirer');
 var Character = require('./buildCharacter.js');
 var setPlayerStats = require('./playerStats');
@@ -80,6 +81,7 @@ exports.character = {
     ).then(answers => {
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
       setPlayerStats.stats.static(playerCharacter);
+      fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       console.log(playerCharacter);
       });
   },
