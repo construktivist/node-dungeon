@@ -1,3 +1,5 @@
+var print = require('./printer.js');
+
 exports.stats = {
   static: function(player){
     switch (player.race) {
@@ -15,14 +17,57 @@ exports.stats = {
     }
   },
 
-  allDynamic: function(player){
+  weapons: function(player){
 
-    equipment = player.weapons;
-    console.log(equipment);
-    // equipment.push(player.armor, player.trinket);
+    for (var i = 0; i < player.weapons.length; i++) {
+      switch (player.weapons[i]) {
+        case "Sword":
+            //attack roll
+            //damage roll
+          break;
+        case "Dagger":
+          //attack roll
+          //damage roll
+          break;
+        case "Mace":
+          //attack roll
+          //damage roll
+        break;
+        case "Bow":
+          //attack roll
+          //damage roll
+        break;
+        case "Staff":
+          //attack roll
+          //damage roll
+        break;
+        case "Shield":
+          //attack roll
+          //damage roll
+        break;
+        default:
+          print.text.normal("Oops. Something went wrong :/");
+      }
+    }
+  },
 
-    // for (var i = 0; i < equipment.length; i++) {
-    //   console.log(equipment[i]);
-    // }
-  }
+  weapons: function(player){
+
+      switch (player.armor) {
+        case "Knights Plate":
+            //Set AC stat
+          break;
+        case "Thiefs Vest":
+          //Set AC stat
+          break;
+        case "Warlocks Robes":
+          //Set AC stat
+        break;
+        case "Clerics Chainmail":
+          //Set AC stat
+        break;
+        default:
+          print.text.normal("Oops. Something went wrong :/");
+    }
+  },
 }

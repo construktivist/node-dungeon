@@ -55,7 +55,7 @@ exports.character = {
           type: 'list',
           name: 'armor',
           message: 'Pick your character\'s armor:',
-          choices: ["Knight's Plate", "Thief's Vest", "Warlocks Robe's", "Cleric's Chainmail"],
+          choices: ["Knights Plate", "Thiefs Vest", "Warlocks Robes", "Clerics Chainmail"],
           filter: function(val) {
             return val.toLowerCase();
           }
@@ -81,7 +81,7 @@ exports.character = {
     ).then(answers => {
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
       setPlayerStats.stats.static(playerCharacter);
-      // setPlayerStats.stats.allDynamic(playerCharacter);
+      setPlayerStats.stats.weapons(playerCharacter);
       fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       console.log(playerCharacter);
       });

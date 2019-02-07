@@ -1,1 +1,1 @@
-{"name":"bill","race":"human","weapons":["Sword","Bow"],"armor":"thief's vest","trinket":"ring of the vampire","hitpoints":15}
+{"name":"bill","race":"dwarf","weapons":["Mace","Shield"],"armor":"clerics chainmail","trinket":"pendant of the necromancer","hitpoints":18}
