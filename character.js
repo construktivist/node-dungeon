@@ -1,1 +1,1 @@
-{"name":"bill","race":"human","armor":"knight's plate","trinket":"necklace of the ogre","hitpoints":15}
+{"name":"bill","race":"human","weapons":["Sword","Bow"],"armor":"thief's vest","trinket":"ring of the vampire","hitpoints":15}

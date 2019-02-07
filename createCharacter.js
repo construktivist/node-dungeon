@@ -19,7 +19,7 @@ exports.character = {
         },
         {
           type: 'checkbox',
-          name: 'weapon',
+          name: 'weapons',
           message: 'You can pick TWO weapons:',
           choices: [
             new inquirer.Separator('=== Melee ==='),
@@ -81,6 +81,7 @@ exports.character = {
     ).then(answers => {
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
       setPlayerStats.stats.static(playerCharacter);
+      // setPlayerStats.stats.allDynamic(playerCharacter);
       fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       console.log(playerCharacter);
       });
