@@ -51,7 +51,7 @@ exports.stats = {
     }
   },
 
-  weapons: function(player){
+  armor: function(player){
 
       switch (player.armor) {
         case "Knights Plate":
@@ -70,4 +70,22 @@ exports.stats = {
           print.text.normal("Oops. Something went wrong :/");
     }
   },
+
+  trinket: function(player){
+
+      switch (player.armor) {
+        case 'Necklace of the Ogre':
+            //Set relevant stat
+          break;
+        case 'Ring of the Vampire':
+          //Set relevant stat
+          break;
+        case 'Pendant of the Necromancer':
+          //Set relevant stat
+        break;
+        default:
+          print.text.normal("Oops. Something went wrong :/");
+    }
+  }
+
 }
