@@ -1,1 +1,1 @@
-{"name":"bill","race":"dwarf","weapons":["Mace","Shield"],"armor":"clerics chainmail","trinket":"pendant of the necromancer","hitpoints":18}
+{"name":"bill","race":"dwarf","weapons":["Mace","Staff"],"armor":"clerics chainmail","trinket":"pendant of the necromancer","attackRoll":11,"hitpoints":18}

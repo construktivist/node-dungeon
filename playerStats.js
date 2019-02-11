@@ -1,4 +1,5 @@
 var print = require('./printer.js');
+var dice = require('./rolls.js')
 
 exports.stats = {
   static: function(player){
@@ -21,29 +22,17 @@ exports.stats = {
 
     for (var i = 0; i < player.weapons.length; i++) {
       switch (player.weapons[i]) {
-        case "Sword":
-            //attack roll
-            //damage roll
+        case "Sword" || "Staff":
+            player['weaponDamage_' + i] = () => {dice.roll.d8()};
           break;
         case "Dagger":
-          //attack roll
-          //damage roll
+          player['weaponDamage_' + i] = () => {dice.roll.d8()};
           break;
-        case "Mace":
-          //attack roll
-          //damage roll
-        break;
-        case "Bow":
-          //attack roll
-          //damage roll
-        break;
-        case "Staff":
-          //attack roll
-          //damage roll
+        case "Mace" || "Bow":
+          player['weaponDamage_' + i] = () => {dice.roll.d8()};
         break;
         case "Shield":
-          //attack roll
-          //damage roll
+          player.shield = 2;
         break;
         default:
           print.text.normal("Oops. Something went wrong :/");
