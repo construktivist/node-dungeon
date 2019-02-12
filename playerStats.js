@@ -46,37 +46,40 @@ exports.stats = {
         console.log(player.armor);
       switch (player.armor) {
         case "knights plate":
-            return player.armorPoints = 10
-            // player.warrior.bonus += 2
+            player.armorPoints = 10
+            player.warrior.bonus += 2
           break;
         case "thiefs vest":
-            return player.armorPoints = 6
-             // player.rogue.bonus += 2
+            player.armorPoints = 6
+             player.rogue.bonus += 2
           break;
         case "warlocks robes":
-            return player.armorPoints = 2
-            // player.magic.bonus += 2
+            player.armorPoints = 2
+            player.magic.bonus += 2
         break;
         case "clerics chainmail":
-            return player.armorPoints = 8
-            // player.divine.bonus += 2
+            player.armorPoints = 8
+            player.divine.bonus += 2
         break;
         default:
           print.text.normal("Oops. Something went wrong :/");
     }
   },
 
-  trinket: function(player){
+  trinkets: function(player){
 
-      switch (player.armor) {
-        case 'Necklace of the Ogre':
-            //Set relevant stat
+      switch (player.trinket) {
+        case 'Necklace of the Paladin':
+            player.warrior.bonus += 1
+            player.divine.bonus += 1
           break;
-        case 'Ring of the Vampire':
-          //Set relevant stat
+        case 'Ring of the Assassin':
+            player.rogue.bonus += 1
+            player.magic.bonus += 1
           break;
-        case 'Pendant of the Arcanist':
-          //Set relevant stat
+        case 'Pendant of the Shaman':
+            player.divine.bonus += 1
+            player.magic.bonus += 1
         break;
         default:
           print.text.normal("Oops. Something went wrong :/");

@@ -64,7 +64,7 @@ exports.character = {
           type: 'list',
           name: 'trinket',
           message: 'Select a trinket:',
-          choices: ['Necklace of the Ogre', 'Ring of the Vampire', 'Pendant of the Necromancer'],
+          choices: ['Necklace of the Paladin', 'Ring of the Assassin', 'Pendant of the Shaman'],
           filter: function(val) {
             return val.toLowerCase();
           }
@@ -80,9 +80,12 @@ exports.character = {
       ]
     ).then(answers => {
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
+
       setPlayerStats.stats.static(playerCharacter);
       setPlayerStats.stats.weapons(playerCharacter);
       setPlayerStats.stats.armor(playerCharacter);
+      setPlayerStats.stats.trinkets(playerCharacter);
+
       fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       console.log(playerCharacter);
       });
