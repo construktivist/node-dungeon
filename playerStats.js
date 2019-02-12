@@ -5,13 +5,13 @@ exports.stats = {
   static: function(player){
     switch (player.race) {
       case 'elf':
-          return player.hitpoints = 12;
+          player.hitpoints = 12;
         break;
       case 'human':
-          return player.hitpoints = 15;
+          player.hitpoints = 15;
         break;
         case 'dwarf':
-          return player.hitpoints = 18;
+            player.hitpoints = 18;
           break;
       default:
         print.text.normal("Oops. Something went wrong :/")
@@ -21,7 +21,6 @@ exports.stats = {
   weapons: function(player){
 
     for (var i = 0; i < player.weapons.length; i++) {
-      console.log(player.weapons[i]);
       switch (player.weapons[i]) {
         case "Staff":
         case "Sword":
@@ -44,19 +43,23 @@ exports.stats = {
   },
 
   armor: function(player){
-
+        console.log(player.armor);
       switch (player.armor) {
-        case "Knights Plate":
-            //Set AC stat
+        case "knights plate":
+            return player.armorPoints = 10
+            // player.warrior.bonus += 2
           break;
-        case "Thiefs Vest":
-          //Set AC stat
+        case "thiefs vest":
+            return player.armorPoints = 6
+             // player.rogue.bonus += 2
           break;
-        case "Warlocks Robes":
-          //Set AC stat
+        case "warlocks robes":
+            return player.armorPoints = 2
+            // player.magic.bonus += 2
         break;
-        case "Clerics Chainmail":
-          //Set AC stat
+        case "clerics chainmail":
+            return player.armorPoints = 8
+            // player.divine.bonus += 2
         break;
         default:
           print.text.normal("Oops. Something went wrong :/");
@@ -72,7 +75,7 @@ exports.stats = {
         case 'Ring of the Vampire':
           //Set relevant stat
           break;
-        case 'Pendant of the Necromancer':
+        case 'Pendant of the Arcanist':
           //Set relevant stat
         break;
         default:

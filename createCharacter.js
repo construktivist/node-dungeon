@@ -82,6 +82,7 @@ exports.character = {
       var playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
       setPlayerStats.stats.static(playerCharacter);
       setPlayerStats.stats.weapons(playerCharacter);
+      setPlayerStats.stats.armor(playerCharacter);
       fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       console.log(playerCharacter);
       });

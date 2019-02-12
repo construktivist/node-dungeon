@@ -1,1 +1,1 @@
-{"name":"bill","race":"dwarf","weapons":["Sword","Staff"],"armor":"thiefs vest","trinket":"pendant of the necromancer","hitpoints":18}
+{"name":"bill","race":"human","weapons":["Sword","Dagger"],"armor":"knights plate","trinket":"necklace of the ogre","warrior":{"abilities":["power attack","shield wall"],"bonus":0},"rogue":{"abilities":["hide","shadow strike"],"bonus":0},"magic":{"abilities":["magic missle","lighting bolt"],"bonus":0},"divine":{"abilities":["heal","bless"],"bonus":0},"hitpoints":15,"armorPoints":10}
