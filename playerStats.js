@@ -21,14 +21,17 @@ exports.stats = {
   weapons: function(player){
 
     for (var i = 0; i < player.weapons.length; i++) {
+      console.log(player.weapons[i]);
       switch (player.weapons[i]) {
-        case "Sword" || "Staff":
+        case "Staff":
+        case "Sword":
             player['weaponDamage_' + i] = () => {dice.roll.d8()};
           break;
         case "Dagger":
           player['weaponDamage_' + i] = () => {dice.roll.d8()};
           break;
-        case "Mace" || "Bow":
+        case "Bow":
+        case "Mace":
           player['weaponDamage_' + i] = () => {dice.roll.d8()};
         break;
         case "Shield":
