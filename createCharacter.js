@@ -86,8 +86,27 @@ exports.character = {
       setPlayerStats.stats.armor(playerCharacter);
       setPlayerStats.stats.trinkets(playerCharacter);
 
-      fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       console.log(playerCharacter);
+
+      this.confirm();
+
+      fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       });
   },
+
+  confirm: function(){
+    inquirer.prompt(
+      [
+        {
+          type: 'confirm',
+          name: 'characteronfirmation',
+          message: 'Do you want to play with this character?',
+          default: true
+        },
+      ]
+    ).then(answers => {
+      !answers ? console.log("Ok! Let's build another character.") : console.log("Great! Let's play.");
+    });
+  }
+
 };
