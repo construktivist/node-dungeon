@@ -85,8 +85,7 @@ exports.character = {
       setPlayerStats.stats.weapons(playerCharacter);
       setPlayerStats.stats.armor(playerCharacter);
       setPlayerStats.stats.trinkets(playerCharacter);
-
-      console.log(playerCharacter);
+      print.text.stats(playerCharacter);
 
       this.confirm();
 
@@ -105,7 +104,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers ? console.log("Ok! Let's build another character.") : console.log("Great! Let's play.");
+      answers === false ? console.log("Ok! Let's build another character.") : console.log("Great! Let's play.");
     });
   }
 
