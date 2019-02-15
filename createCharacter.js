@@ -87,24 +87,39 @@ exports.character = {
       setPlayerStats.stats.trinkets(playerCharacter);
       print.text.stats(playerCharacter);
 
-      this.confirm();
+      this.confirm("Do you want to use this character?");
 
       fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       });
   },
 
-  confirm: function(){
+  confirm: function(message){
     inquirer.prompt(
       [
         {
           type: 'confirm',
-          name: 'characteronfirmation',
-          message: 'Do you want to play with this character?',
+          name: 'characterConfirmation',
+          message: message,
           default: true
         },
       ]
     ).then(answers => {
-      answers === false ? console.log("Ok! Let's build another character.") : console.log("Great! Let's play.");
+      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?") : console.log("Let's Play!");
+    });
+  },
+
+  confirmAgain: function(message){
+    inquirer.prompt(
+      [
+        {
+          type: 'confirm',
+          name: 'secondCharacterConfirmation',
+          message: message,
+          default: true
+        },
+      ]
+    ).then(answers => {
+      !answers.characterConfirmation ? this.new() : console.log("Let's Play!");
     });
   }
 
