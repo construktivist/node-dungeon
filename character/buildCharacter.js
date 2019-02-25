@@ -22,6 +22,11 @@ function Character(name, race, weapons, armor, trinket){
     abilities: ['heal', 'bless'],
     bonus: 0,
   };
+  this.gameStatus = {
+    campaign: 0,
+    adventure: 0,
+    room: 0,
+  };
 
   this.attackRoll = () => {dice.roll.d20()};
 }

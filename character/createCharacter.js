@@ -2,6 +2,7 @@ var fs = require('fs');
 var inquirer = require('inquirer');
 var Character = require('./buildCharacter.js');
 var setPlayerStats = require('./characterStats');
+var campaign = require('../campaign/campaignSelect.js');
 var print = require('../helpers/printer.js');
 
 exports.character = {
@@ -104,7 +105,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?") : console.log("Let's Play!");
+      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?") : campaign.launch.rats(1);
     });
   },
 
@@ -119,7 +120,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.new() : console.log("Let's Play!");
+      !answers.characterConfirmation ? this.new() : campaign.launch.rats(1);
     });
   }
 
