@@ -1,8 +1,8 @@
 var fs = require('fs');
 var inquirer = require('inquirer');
 var Character = require('./buildCharacter.js');
-var setPlayerStats = require('./playerStats');
-var print = require('./printer.js');
+var setPlayerStats = require('./characterStats');
+var print = require('../helpers/printer.js');
 
 exports.character = {
   new: function(){

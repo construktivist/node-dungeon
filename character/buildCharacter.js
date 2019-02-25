@@ -1,4 +1,4 @@
-var dice = require('./rolls.js');
+var dice = require('../rolls.js');
 
 function Character(name, race, weapons, armor, trinket){
   this.name = name;

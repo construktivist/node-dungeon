@@ -1,6 +1,6 @@
 var inquirer = require('inquirer');
-var print = require('./printer.js');
-var player = require('./createCharacter.js')
+var print = require('./helpers/printer.js');
+var player = require('./character/createCharacter.js');
 
 exports.main = {
   questions: [

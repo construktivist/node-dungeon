@@ -1,4 +1,4 @@
-var print = require('./printer.js');
+var print = require('./helpers/printer.js');
 
 
 exports.roll = {

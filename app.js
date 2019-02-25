@@ -1,6 +1,6 @@
 var inquirer = require('inquirer');
-var print = require('./printer.js');
-var start = require('./start.js');
+var print = require('./helpers/printer.js');
+var start = require('./mainMenu.js');
 
 print.text.border("Welcome to Node Dungeon!");
 

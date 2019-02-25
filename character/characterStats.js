@@ -1,5 +1,5 @@
-var print = require('./printer.js');
-var dice = require('./rolls.js')
+var print = require('../helpers/printer.js');
+var dice = require('../rolls.js');
 
 exports.stats = {
   static: function(player){
