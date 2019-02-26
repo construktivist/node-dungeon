@@ -1,11 +1,16 @@
+var chalkPipe = require('chalk-pipe');
+
+
 
 exports.text = {
 
   border: (string) => {
     console.log(
+      chalkPipe('green.bold')(
       "========================== \n" +
       string + "\n" +
       "========================== \n"
+      )
     );
   },
 
