@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/construktivist/node-dungeon#readme",
   "dependencies": {
+    "chalk-pipe": "^2.0.0",
     "inquirer": "^6.2.1"
   }
 }
