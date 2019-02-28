@@ -1,4 +1,4 @@
-var inquirer = require('inquirer.js');
+var inquirer = require('inquirer');
 
 function Room(intro, question, prompts, cases){
   this.intro = intro;
@@ -14,14 +14,12 @@ function Room(intro, question, prompts, cases){
           type: 'list',
           name: 'decision',
           message: 'What do you do?',
-          choices: "Questions", //handle prompts
-          filter: function(val) {
-            return val.toLowerCase();
-          }
+          choices: prompts
         },
       ]
     ).then(answers => {
         //handle cases
+        console.log(cases);
       }
     );
   };
