@@ -1,10 +1,10 @@
 var inquirer = require('inquirer');
 
-function Room(intro, question, prompts, cases){
+function Room(intro, question, prompts, choices){
   this.intro = intro;
   this.question = question;
   this.prompts = prompts;
-  this.cases = cases;
+  this.choices = choices;
 
   this.runRoom = () => {
     console.log(this.intro);
@@ -18,11 +18,26 @@ function Room(intro, question, prompts, cases){
         },
       ]
     ).then(answers => {
-        //handle cases
-        console.log(cases);
+        this.resolveRoomChoice(answers);
       }
     );
   };
+
+  this.resolveRoomChoice = (answers) => {
+    switch (answers.decision) {
+      case answers.decision.includes("move"):
+        console.log("You move past the rat");
+        break;
+      case answers.decision.includes("fight"):
+        console.log("You fight the rat!");
+        break;
+      case answers.decision.includes("flee"):
+        console.log("You flee from the rat!");
+        break;
+      default:
+        console.log("Something is not working.");
+    }
+  }
 }
 
 module.exports = Room;

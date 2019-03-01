@@ -7,13 +7,14 @@ exports.launch = {
 
   actOne: () => {
     var ratRoomOne = new Room(
-      "Room intro description",
+      "You step into a room and there is a rat.",
       "What do you do next?",
-      ["Choice A", "Choice B", "Choice C"],
-      "Only case available."
+      ["move", "fight", "flee"],
+      [1, 2, 3]
     );
 
     ratRoomOne.runRoom();
 
   }
+
 }
