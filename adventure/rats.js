@@ -3,20 +3,21 @@ var Room = require('../buildRoom.js');
 
 exports.launch = {
 
-  actOne: () => {
-    var ratRoomOne = new Room(
+  adventureOne: () => {
+    var RoomOne = new Room(
       "You step into a room and there is a rat.",
       "What do you do next?",
       ["move", "fight", "flee"],
-      [1, 2, 3]
+      "movement",
+      "rat"
     );
 
-    ratRoomOne.runRoom();
+    RoomOne.runRoom();
 
-  }
+  },
 
 }
 
 // var rat = require('./rats.js');
-
-// rat.launch.actOne();
+//
+// rat.launch.adventureOne();

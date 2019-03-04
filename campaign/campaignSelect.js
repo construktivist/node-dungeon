@@ -4,13 +4,13 @@ exports.launch = {
   rats: (int) => {
     switch (int) {
       case 1:
-        rats.launch.actOne();
+        rats.launch.adventureOne();
         break;
       case 2:
-        rats.launch.actTwo();
+        rats.launch.adventureTwo();
         break;
       case 3:
-        rats.launch.actThree();
+        rats.launch.adventureThree();
         break;
       default:
         print.text.normal("Oops. Something went wrong :/");

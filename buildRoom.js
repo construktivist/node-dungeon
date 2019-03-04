@@ -1,10 +1,13 @@
 var inquirer = require('inquirer');
+var Enemy = require('./enemies/enemies.js');
 
-function Room(intro, question, prompts, choices){
+function Room(intro, question, prompts, movement, enemies, explore){
   this.intro = intro;
   this.question = question;
   this.prompts = prompts;
-  this.choices = choices;
+  this.movement = movement;
+  this.enemies = new Enemy(enemies);
+  this.explore = explore;
 
   this.runRoom = () => {
     console.log(this.intro);
@@ -27,9 +30,12 @@ function Room(intro, question, prompts, choices){
     console.log(answers.decision);
     if (answers.decision.includes("move")){
       console.log("You move to the other room")
+
     }
     else if (answers.decision.includes("fight")){
-      console.log("You fight the rat!")
+      console.log(this.enemies);
+
+
     }
     else {
       console.log("You flee!")
