@@ -24,18 +24,15 @@ function Room(intro, question, prompts, choices){
   };
 
   this.resolveRoomChoice = (answers) => {
-    switch (answers.decision) {
-      case answers.decision.includes("move"):
-        console.log("You move past the rat");
-        break;
-      case answers.decision.includes("fight"):
-        console.log("You fight the rat!");
-        break;
-      case answers.decision.includes("flee"):
-        console.log("You flee from the rat!");
-        break;
-      default:
-        console.log("Something is not working.");
+    console.log(answers.decision);
+    if (answers.decision.includes("move")){
+      console.log("You move to the other room")
+    }
+    else if (answers.decision.includes("fight")){
+      console.log("You fight the rat!")
+    }
+    else {
+      console.log("You flee!")
     }
   }
 }

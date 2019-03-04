@@ -1,8 +1,6 @@
 var inquirer = require('inquirer');
 var Room = require('../buildRoom.js');
 
-
-
 exports.launch = {
 
   actOne: () => {
@@ -18,3 +16,7 @@ exports.launch = {
   }
 
 }
+
+// var rat = require('./rats.js');
+
+// rat.launch.actOne();
