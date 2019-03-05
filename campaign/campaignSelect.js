@@ -1,16 +1,16 @@
-var rats = require('../adventure/rats.js');
+var tavern = require('../adventure/tavern.js');
 
 exports.launch = {
-  rats: (int) => {
+  tavern: (int) => {
     switch (int) {
       case 1:
-        rats.launch.adventureOne();
+        tavern.launch.adventureOneRoomOne();
         break;
       case 2:
-        rats.launch.adventureTwo();
+        tavern.launch.adventureTwo();
         break;
       case 3:
-        rats.launch.adventureThree();
+        tavern.launch.adventureThree();
         break;
       default:
         print.text.normal("Oops. Something went wrong :/");

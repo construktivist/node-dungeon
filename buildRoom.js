@@ -1,5 +1,4 @@
 var inquirer = require('inquirer');
-var Enemy = require('./enemies/enemies.js');
 
 function Room(intro, question, prompts, resolve){
   this.intro = intro;
