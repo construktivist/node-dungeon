@@ -1,13 +1,11 @@
 var inquirer = require('inquirer');
 var Enemy = require('./enemies/enemies.js');
 
-function Room(intro, question, prompts, movement, enemies, explore){
+function Room(intro, question, prompts, resolve){
   this.intro = intro;
   this.question = question;
   this.prompts = prompts;
-  this.movement = movement;
-  this.enemies = new Enemy(enemies);
-  this.explore = explore;
+  this.resolve = resolve;
 
   this.runRoom = () => {
     console.log(this.intro);
@@ -16,31 +14,16 @@ function Room(intro, question, prompts, movement, enemies, explore){
         {
           type: 'list',
           name: 'decision',
-          message: 'What do you do?',
+          message: this.question,
           choices: prompts
         },
       ]
     ).then(answers => {
-        this.resolveRoomChoice(answers);
+        this.resolve(answers.decision);
       }
     );
   };
 
-  this.resolveRoomChoice = (answers) => {
-    console.log(answers.decision);
-    if (answers.decision.includes("move")){
-      console.log("You move to the other room")
-
-    }
-    else if (answers.decision.includes("fight")){
-      console.log(this.enemies);
-
-
-    }
-    else {
-      console.log("You flee!")
-    }
-  }
 }
 
 module.exports = Room;
