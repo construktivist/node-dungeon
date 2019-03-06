@@ -105,7 +105,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?") : campaign.launch.rats(1);
+      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?") : campaign.launch.tavern(1);
     });
   },
 
@@ -120,7 +120,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.new() : campaign.launch.rats(1);
+      !answers.characterConfirmation ? this.new() : campaign.launch.tavern(1);
     });
   }
 
