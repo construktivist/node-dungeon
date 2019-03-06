@@ -24,12 +24,13 @@ exports.text = {
     console.log(string);
   },
 
-  stats: (player) => {
+  playerStats: (player) => {
     console.log(
+      chalkPipe('green.bold')(
       "--------------------------- \n" +
       "Character Name: " + player.name + "\n" +
       "Race: " + player.race + "\n" +
-      "Hit Points: " + player.hitpoints + "\n" +
+      "Hit Points: " + player.hitPoints + "\n" +
       "Armor Class: " + player.armorPoints + "\n" +
       "Warrior Bonus: " + player.warrior.bonus + "\n" +
       "Rogue Bonus: " + player.rogue.bonus + "\n" +
@@ -39,7 +40,16 @@ exports.text = {
         player.weapons[0] + " " +
         player.weapons[1] + " " +
         player.armor + " " +
-        player.trinket + "\n");
+        player.trinket + "\n"));
+  },
+
+  enemyStats: (enemy) => {
+    console.log(
+      chalkPipe('green.bold')(
+      "--------------------------- \n" +
+      "Enemy Name: " + enemy.name + "\n" +
+      "Hit Points: " + enemy.healthPoints + "\n" +
+      "Armor Class: " + enemy.armorPoints + "\n"));
   }
 
-};
+}

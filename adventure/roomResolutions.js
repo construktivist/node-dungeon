@@ -1,4 +1,5 @@
 var tavern = require('./tavern.js');
+var Battle = require('../combat/battle.js');
 
 exports.room = {
   adventureOneRoomOne: (answer) => {
@@ -9,6 +10,8 @@ exports.room = {
         break;
       case "Fight the rat.":
         console.log("You fight the rat.");
+        battle = new Battle("rat");
+        battle.run();
         break;
       case "Check the chest.":
         console.log("You open the chest.");

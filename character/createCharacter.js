@@ -86,7 +86,7 @@ exports.character = {
       setPlayerStats.stats.weapons(playerCharacter);
       setPlayerStats.stats.armor(playerCharacter);
       setPlayerStats.stats.trinkets(playerCharacter);
-      print.text.stats(playerCharacter);
+      print.text.playerStats(playerCharacter);
 
       this.confirm("Do you want to use this character?");
 
