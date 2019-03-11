@@ -1,12 +1,12 @@
 var inquirer = require('inquirer');
+var fs = require('fs');
 
-weapons = [`Sword`, `Bow`];
-
-// const printWeapons = (items) => {
-//     items.forEach(item => {
-//         return (item);
-//     });
-// };
+fs.readFile('../data/character.js', (err, data) => {
+    if (err) {
+        throw err;
+    }
+    console.log(data.toString());
+})
 
 exports.actions = {
     prompt:  [
@@ -16,9 +16,7 @@ exports.actions = {
           message: 'What do you do?',
           choices: [
               new inquirer.Separator('=== Weapon ==='),
-              // printWeapons(weapons),
-              weapons[0],
-              weapons[1],
+              "Use a weapon",
               new inquirer.Separator('=== Warrior Abilities ==='),
               "Use Power Attack",
               new inquirer.Separator('=== Rogue Abilities ==='),
