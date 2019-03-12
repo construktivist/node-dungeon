@@ -3,13 +3,9 @@ var fs = require('fs');
 
 
 
-fs.readFile('../data/character.js', (err, data) => {
-    if (err) {
-        throw err;
-    }
+var characterData = fs.readFileSync('../data/character.js');
 
-    return JSON.parse(data);
-});
+console.log(JSON.parse(characterData));
 
 exports.actions = {
     prompt:  [
