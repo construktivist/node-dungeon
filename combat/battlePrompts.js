@@ -1,12 +1,15 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
 
+
+
 fs.readFile('../data/character.js', (err, data) => {
     if (err) {
         throw err;
     }
-    console.log(data.toString());
-})
+
+    return JSON.parse(data);
+});
 
 exports.actions = {
     prompt:  [
