@@ -1,11 +1,11 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
 
+var character = JSON.parse(fs.readFileSync('../data/character.js'));
 
-
-var characterData = fs.readFileSync('../data/character.js');
-
-console.log(JSON.parse(characterData));
+character.weapons.forEach(function(i){
+    return i.toString();
+}),
 
 exports.actions = {
     prompt:  [
