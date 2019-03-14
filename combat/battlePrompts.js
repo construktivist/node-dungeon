@@ -3,9 +3,6 @@ var fs = require('fs');
 
 var character = JSON.parse(fs.readFileSync('../data/character.js'));
 
-character.weapons.forEach(function(i){
-    return i.toString();
-}),
 
 exports.actions = {
     prompt:  [
@@ -15,15 +12,21 @@ exports.actions = {
           message: 'What do you do?',
           choices: [
               new inquirer.Separator('=== Weapon ==='),
-              "Use a weapon",
+              character.weapons[0],
+              character.weapons[1],
               new inquirer.Separator('=== Warrior Abilities ==='),
-              "Use Power Attack",
+              character.warrior.abilities[0],
+              character.warrior.abilities[1],
               new inquirer.Separator('=== Rogue Abilities ==='),
-              "Use Rogue Ability",
+              character.rogue.abilities[0],
+              character.rogue.abilities[1],
               new inquirer.Separator('=== Magic ==='),
-              "Use Magic Ability",
+              character.magic.abilities[0],
+              character.magic.abilities[1],
               new inquirer.Separator('=== Divine ==='),
-              "Use Divine Ability"],
+              character.divine.abilities[0],
+              character.divine.abilities[1]
+          ],
           filter: function(val) {
             return val.toLowerCase();
           }
