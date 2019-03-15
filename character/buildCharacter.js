@@ -7,19 +7,19 @@ function Character(name, race, weapons, armor, trinket){
   this.armor = armor;
   this.trinket = trinket;
   this.warrior = {
-    abilities: ['power attack', 'shield wall'],
+    abilities: ['Power Attack', 'Shield Wall'],
     bonus: 0,
   };
   this.rogue = {
-    abilities: ['hide', 'shadow strike'],
+    abilities: ['Hide', 'Shadow Strike'],
     bonus: 0,
   };
   this.magic = {
-    abilities: ['magic missle', 'lighting bolt'],
+    abilities: ['Magic Missle', 'Lighting Bolt'],
     bonus: 0,
   };
   this.divine = {
-    abilities: ['heal', 'bless'],
+    abilities: ['Heal', 'Bless'],
     bonus: 0,
   };
   this.gameStatus = {

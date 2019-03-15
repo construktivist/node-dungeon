@@ -35,6 +35,6 @@ exports.launch = {
 
 };
 
-var tavern = require('./tavern.js');
-
-tavern.launch.adventureOneRoomOne();
+// var tavern = require('./tavern.js');
+//
+// tavern.launch.adventureOneRoomOne();

@@ -88,13 +88,12 @@ exports.character = {
       setPlayerStats.stats.trinkets(playerCharacter);
       print.text.playerStats(playerCharacter);
 
-      this.confirm("Do you want to use this character?");
+      this.confirm("Do you want to use this character?", playerCharacter);
 
-      fs.writeFile('./character.js', JSON.stringify(playerCharacter));
       });
   },
 
-  confirm: function(message){
+  confirm: function(message, playerCharacter){
     inquirer.prompt(
       [
         {
@@ -105,11 +104,14 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?") : campaign.launch.tavern(1);
+      !answers.characterConfirmation ? this.confirmAgain("Are you sure you want to build another character?", playerCharacter) :
+        fs.writeFile('./data/character.js', JSON.stringify(playerCharacter));
+        campaign.launch.tavern(1);
+
     });
   },
 
-  confirmAgain: function(message){
+  confirmAgain: function(message, playerCharacter){
     inquirer.prompt(
       [
         {
@@ -120,7 +122,10 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.new() : campaign.launch.tavern(1);
+      !answers.characterConfirmation ? this.new() :
+        fs.writeFile('./data/character.js', JSON.stringify(playerCharacter));
+        campaign.launch.tavern(1);
+
     });
   }
 
