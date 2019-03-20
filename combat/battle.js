@@ -2,7 +2,7 @@ const inquirer = require(`inquirer`);
 const fs = require(`fs`);
 var Enemy = require('../enemies/enemy.js');
 var print = require('../helpers/printer.js');
-
+const combat = require('./combatHandler.js');
 
 function Battle(enemy){
 
@@ -41,7 +41,7 @@ function Battle(enemy){
   this.run = () => {
     print.text.enemyStats(this.enemy);
     inquirer.prompt(this.questions).then(answers => {
-        console.log(answers);
+      combat.actions.handle(answers.decision, this.enemy);
     });
   }
 
