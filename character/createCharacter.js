@@ -88,6 +88,7 @@ exports.character = {
       setPlayerStats.stats.trinkets(playerCharacter);
       print.text.playerStats(playerCharacter);
 
+      console.log(playerCharacter);
       this.confirm("Do you want to use this character?", playerCharacter);
 
       });

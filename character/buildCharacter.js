@@ -15,7 +15,7 @@ function Character(name, race, weapons, armor, trinket){
     bonus: 0,
   };
   this.magic = {
-    abilities: ['Magic Missle', 'Lighting Bolt'],
+    abilities: ['Magic Missle', 'Lightning Bolt'],
     bonus: 0,
   };
   this.divine = {

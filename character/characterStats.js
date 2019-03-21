@@ -43,7 +43,6 @@ exports.stats = {
   },
 
   armor: function(player){
-        console.log(player.armor);
       switch (player.armor) {
         case "knights plate":
             player.armorPoints = 10
