@@ -1,4 +1,4 @@
-var inquirer = require('inquirer');
+const inquirer = require(`inquirer`);
 
 function Room(intro, question, prompts, resolve){
   this.intro = intro;
@@ -11,8 +11,8 @@ function Room(intro, question, prompts, resolve){
     inquirer.prompt(
       [
         {
-          type: 'list',
-          name: 'decision',
+          type: `list`,
+          name: `decision`,
           message: this.question,
           choices: prompts
         },

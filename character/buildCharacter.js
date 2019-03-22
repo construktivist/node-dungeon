@@ -1,4 +1,4 @@
-var dice = require('../rolls.js');
+const dice = require(`../rolls.js`);
 
 function Character(name, race, weapons, armor, trinket){
   this.name = name;
@@ -7,19 +7,19 @@ function Character(name, race, weapons, armor, trinket){
   this.armor = armor;
   this.trinket = trinket;
   this.warrior = {
-    abilities: ['Power Attack', 'Shield Wall'],
+    abilities: [`Power Attack`, `Shield Wall`],
     bonus: 0,
   };
   this.rogue = {
-    abilities: ['Hide', 'Shadow Strike'],
+    abilities: [`Hide`, `Shadow Strike`],
     bonus: 0,
   };
   this.magic = {
-    abilities: ['Magic Missle', 'Lightning Bolt'],
+    abilities: [`Magic Missle`, `Lightning Bolt`],
     bonus: 0,
   };
   this.divine = {
-    abilities: ['Heal', 'Bless'],
+    abilities: [`Heal`, `Bless`],
     bonus: 0,
   };
   this.gameStatus = {

@@ -1,4 +1,4 @@
-var tavern = require('../adventure/tavern.js');
+const tavern = require(`../adventure/tavern.js`);
 
 exports.launch = {
   tavern: (int) => {
@@ -13,15 +13,15 @@ exports.launch = {
         tavern.launch.adventureThree();
         break;
       default:
-        print.text.normal("Oops. Something went wrong :/");
+        print.text.normal(`Oops. Something went wrong :/`);
     }
   },
 
   goblins: (int) => {
-    console.log("Goblins");
+    console.log(`Goblins`);
   },
 
   undead: (int) => {
-    console.log("Undead");
+    console.log(`Undead`);
   }
 };
