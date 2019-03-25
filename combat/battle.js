@@ -1,14 +1,27 @@
 const inquirer = require(`inquirer`);
 const fs = require(`fs`);
-var Enemy = require('../enemies/enemy.js');
-var print = require('../helpers/printer.js');
+const Enemy = require('../enemies/enemy.js');
+const print = require('../helpers/printer.js');
 const combat = require('./combatHandler.js');
+const Character = require(`../character/buildCharacter.js`);
+const setPlayerStats = require(`../character/characterStats`);
 
 function Battle(enemy){
 
   this.enemy = new Enemy(enemy);
 
-  this.character = JSON.parse(fs.readFileSync('./data/character.js'));
+  this.characterData = JSON.parse(fs.readFileSync('./data/character.js'));
+
+  this.character = new Character(this.characterData.name, this.characterData.race, this.characterData.weapons, this.characterData.armor, this.characterData.trinket);
+
+  this.rebuildCharacter = () => {
+    setPlayerStats.stats.static(this.character);
+    setPlayerStats.stats.weapons(this.character);
+    setPlayerStats.stats.armor(this.character);
+    setPlayerStats.stats.trinkets(this.character);
+    console.log(this.character);
+    print.text.playerStats(this.character);
+  };
 
   this.questions = [
         {
@@ -40,6 +53,7 @@ function Battle(enemy){
 
   this.run = () => {
     print.text.enemyStats(this.enemy);
+    this.rebuildCharacter();
     inquirer.prompt(this.questions).then(answers => {
       combat.actions.handle(answers.decision, this.enemy);
     });
