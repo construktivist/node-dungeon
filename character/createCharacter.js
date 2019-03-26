@@ -82,13 +82,7 @@ exports.character = {
     ).then(answers => {
       const playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
 
-      setPlayerStats.stats.static(playerCharacter);
-      setPlayerStats.stats.weapons(playerCharacter);
-      setPlayerStats.stats.armor(playerCharacter);
-      setPlayerStats.stats.trinkets(playerCharacter);
-      print.text.playerStats(playerCharacter);
-
-      console.log(playerCharacter);
+      this.buildCharacter(playerCharacter);
       this.confirm(`Do you want to use this character?`, playerCharacter);
 
       });
@@ -114,10 +108,10 @@ exports.character = {
 
   load: function(){
     const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
-    const character = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket);
+    const playerCharacter = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket);
 
-    this.buildCharacter(character);
-    return character;
+    this.buildCharacter(playerCharacter);
+    return playerCharacter;
 
   },
 
