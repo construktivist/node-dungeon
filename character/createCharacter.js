@@ -112,6 +112,24 @@ exports.character = {
     });
   },
 
+  load: function(){
+    const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
+    const character = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket);
+
+    this.buildCharacter(character);
+    return character;
+
+  },
+
+  buildCharacter: function(character){
+    setPlayerStats.stats.static(character);
+    setPlayerStats.stats.weapons(character);
+    setPlayerStats.stats.armor(character);
+    setPlayerStats.stats.trinkets(character);
+    console.log(character);
+    print.text.playerStats(character);
+  },
+
   confirmAgain: function(message, playerCharacter){
     inquirer.prompt(
       [
