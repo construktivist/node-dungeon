@@ -1,12 +1,13 @@
 var dice = require('../rolls.js');
 
 exports.actions = {
-  handle: (answer, enemy) => {
+  handle: (answer, character, enemy) => {
     console.log(answer);
+    console.log(character);
     console.log(enemy);
     switch (answer) {
       case "sword" || "staff":
-            let attack = dice.roll.d20();
+            let attack = character.attackRoll();
             console.log(`You attack with your ` + answer);
             console.log(`You rolled a ` + attack);
             attack >= enemy.armorPoints ?

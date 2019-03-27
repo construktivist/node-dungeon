@@ -42,7 +42,7 @@ function Battle(enemy){
   this.run = () => {
     print.text.enemyStats(this.enemy);
     inquirer.prompt(this.questions).then(answers => {
-      combat.actions.handle(answers.decision, this.enemy);
+      combat.actions.handle(answers.decision, this.character, this.enemy);
     });
   }
 
