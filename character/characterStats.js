@@ -24,14 +24,14 @@ exports.stats = {
       switch (player.weapons[i]) {
         case `Staff`:
         case `Sword`:
-            player[`weaponDamage_` + i] = () => {dice.roll.d6()};
+            player[`weaponDamage_` + i] = () => {return dice.roll.d6()};
           break;
         case "Dagger":
-          player[`weaponDamage_` + i] = () => {dice.roll.d4()};
+          player[`weaponDamage_` + i] = () => {return dice.roll.d4()};
           break;
         case `Bow`:
         case `Mace`:
-          player[`weaponDamage_` + i] = () => {dice.roll.d8()};
+          player[`weaponDamage_` + i] = () => {return dice.roll.d8()};
         break;
         case `Shield`:
           player.shield = 2;

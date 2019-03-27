@@ -28,7 +28,7 @@ function Character(name, race, weapons, armor, trinket){
     room: 0,
   };
 
-  this.attackRoll = () => {dice.roll.d20()};
+  this.attackRoll = () => { return dice.roll.d20()};
 }
 
 module.exports = Character;
