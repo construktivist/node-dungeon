@@ -1,10 +1,11 @@
 var dice = require('../rolls.js');
 
 exports.actions = {
-  handle: (answer, character, enemy) => {
+  handle: function(answer, character, enemy){
     console.log(answer);
     console.log(character);
-    console.log(enemy);
+    console.log(enemy.name);
+
     switch (answer) {
       case 'sword':
       case 'dagger':
@@ -15,8 +16,8 @@ exports.actions = {
             console.log(`You attack with your ` + answer);
             console.log(`You rolled a ` + attack);
 
-            // attack >= enemy.armorPoints ?
-            //   this.hit(answer, character, enemy) : console.log(`You missed!`);
+            attack >= enemy.armorPoints ?
+              this.hit(answer, character, enemy) : console.log(`You missed!`);
 
         break;
       case "power attack":
@@ -50,10 +51,11 @@ exports.actions = {
     }
   },
 
-  hit: (answer, character, enemy) => {
+  hit: function(answer, character, enemy) {
     console.log(`You hit the ` + enemy.name + `!`);
     character.weapons[0] === answer ?
     console.log(`You dealt ` + character.weaponDamage_0() + ` damage!`) :
-    console.log(`You dealt ` + character.weaponDamage_1() + ` damage!`);
+    console.log(`You dealt ` + character.weaponDamage_1() + ` damage!`)
   }
-}
+
+};
