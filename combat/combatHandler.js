@@ -12,7 +12,7 @@ exports.actions = {
       case 'bow':
       case 'staff':
       case 'mace':
-            let attack = character.attackRoll();
+            var attack = character.attackRoll();
             console.log(`You attack with your ` + answer);
             console.log(`You rolled a ` + attack);
 
@@ -21,7 +21,12 @@ exports.actions = {
 
         break;
       case "power attack":
-            //resolve power attack roll
+            var attack = (character.attackRoll() - 2);
+            console.log(`You swing with your mighty ` + answer);
+            console.log(`You rolled a ` + attack);
+
+            attack >= enemy.armorPoints ?
+              this.powerAttackHit(answer, character, enemy) : console.log(`You missed!`);
         break;
       case "shield wall":
               //resolve shield wall roll
@@ -56,6 +61,13 @@ exports.actions = {
     character.weapons[0] === answer ?
     console.log(`You dealt ` + character.weaponDamage_0() + ` damage!`) :
     console.log(`You dealt ` + character.weaponDamage_1() + ` damage!`)
+  },
+
+  powerAttackHit: function(answer, character, enemy) {
+    console.log(`Your power attack hit the ` + enemy.name + `!`);
+    character.weapons[0] === answer ?
+    console.log(`You dealt ` + (character.weaponDamage_0() + 2) + ` damage!`) :
+    console.log(`You dealt ` + (character.weaponDamage_1() + 2) + ` damage!`)
   }
 
 };
