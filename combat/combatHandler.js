@@ -21,7 +21,7 @@ exports.actions = {
 
         break;
       case "power attack":
-            var attack = (character.attackRoll() - 2);
+            var attack = (character.attackRoll() - 2) + character.warrior.abilities.bonus;
             console.log(`You swing with your mighty ` + answer);
             console.log(`You rolled a ` + attack);
 
@@ -29,7 +29,8 @@ exports.actions = {
               this.powerAttackHit(answer, character, enemy) : console.log(`You missed!`);
         break;
       case "shield wall":
-              //resolve shield wall roll
+            character.warrior.shieldWallBuffAmount += (2 + character.warrior.bonus);
+            console.log(`Shield Wall buff applied! Your Armor Class is now ` + (character.armorPoints + character.warrior.shieldWallBuffAmount));
         break;
       case "hide":
               //resolve hide roll

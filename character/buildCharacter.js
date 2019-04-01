@@ -9,6 +9,7 @@ function Character(name, race, weapons, armor, trinket){
   this.warrior = {
     abilities: [`Power Attack`, `Shield Wall`],
     bonus: 0,
+    shieldWallBuffAmount: 0,
   };
   this.rogue = {
     abilities: [`Hide`, `Shadow Strike`],
