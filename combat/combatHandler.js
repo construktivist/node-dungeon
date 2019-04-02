@@ -13,15 +13,11 @@ exports.actions = {
       case 'staff':
       case 'mace':
             var attack = character.attackRoll();
-            console.log(`You attack with your ` + answer);
-            console.log(`You rolled a ` + attack);
-
-            attack >= enemy.armorPoints ?
-              this.hit(answer, character, enemy) : console.log(`You missed!`);
+            this.attack(attack, answer, character, enemy);
 
         break;
       case "power attack":
-            var attack = (character.attackRoll() - 2) + character.warrior.abilities.bonus;
+            var attack = (character.attackRoll() - 2) + character.warrior.bonus;
             console.log(`You swing with your mighty ` + answer);
             console.log(`You rolled a ` + attack);
 
@@ -36,13 +32,18 @@ exports.actions = {
               //resolve hide roll
         break;
       case "shadow strike":
-              //resolve shadow strike roll
+              var attack = character.attackRoll() + character.rogue.bonus;
+              this.attack(attack, answer, character, enemy);
+
         break;
       case "magic missle":
-              //resolve magic missle roll
+              var attack = character.attackRoll() + character.magic.bonus;
+              this.attack(attack, answer, character, enemy);
+
         break;
       case "lightning bolt":
-              //resolve lightning bolt roll
+              var attack = character.attackRoll() + character.magic.bonus;
+              this.attack(attack, answer, character, enemy);
         break;
       case "heal":
               //resolve heal roll
@@ -55,6 +56,13 @@ exports.actions = {
             console.log("Something is wrong");
 
     }
+  },
+
+  attack: function(attack, answer, character, enemy){
+    console.log(`You attack with your ` + answer);
+    console.log(`You rolled a ` + attack);
+    attack >= enemy.armorPoints ?
+      this.hit(answer, character, enemy) : console.log(`You missed!`);
   },
 
   hit: function(answer, character, enemy) {
