@@ -1,4 +1,4 @@
-var chalkPipe = require('chalk-pipe');
+const chalkPipe = require('chalk-pipe');
 
 
 
@@ -45,7 +45,7 @@ exports.text = {
 
   enemyStats: (enemy) => {
     console.log(
-      chalkPipe('green.bold')(
+      chalkPipe('red.bold')(
       "--------------------------- \n" +
       "Enemy Name: " + enemy.name + "\n" +
       "Hit Points: " + enemy.healthPoints + "\n" +

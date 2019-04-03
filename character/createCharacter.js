@@ -4,6 +4,7 @@ const Character = require(`./buildCharacter.js`);
 const setPlayerStats = require(`./characterStats`);
 const campaign = require(`../campaign/campaignSelect.js`);
 const print = require(`../helpers/printer.js`);
+const chalkPipe = require(`chalk-pipe`);
 
 exports.character = {
   new: function(){
@@ -12,7 +13,7 @@ exports.character = {
         {
           type: `list`,
           name: `race`,
-          message: `Select your character's race:`,
+          message: chalkPipe('bgGreen.yellow')(`Select your character's race:`),
           choices: [`Human`, `Elf`, `Dwarf`],
           filter: function(val) {
             return val.toLowerCase();
@@ -21,7 +22,7 @@ exports.character = {
         {
           type: `checkbox`,
           name: `weapons`,
-          message: `You can pick TWO weapons:`,
+          message: chalkPipe('bgGreen.yellow')(`You can pick TWO weapons:`),
           choices: [
             new inquirer.Separator(`=== Melee ===`),
             {
@@ -55,7 +56,7 @@ exports.character = {
         {
           type: `list`,
           name: `armor`,
-          message: `Pick your character's armor:`,
+          message: chalkPipe('bgGreen.yellow')(`Pick your character's armor:`),
           choices: [`Knights Plate`, `Thiefs Vest`, `Warlocks Robes`, `Clerics Chainmail`],
           filter: function(val) {
             return val.toLowerCase();
@@ -64,7 +65,7 @@ exports.character = {
         {
           type: `list`,
           name: `trinket`,
-          message: `Select a trinket:`,
+          message: chalkPipe('bgGreen.yellow')(`Select a trinket:`),
           choices: [`Necklace of the Paladin`, `Ring of the Assassin`, `Pendant of the Shaman`],
           filter: function(val) {
             return val.toLowerCase();
@@ -73,7 +74,7 @@ exports.character = {
         {
           type: `input`,
           name: `name`,
-          message: `What is your character name?:`,
+          message: chalkPipe('bgGreen.yellow')(`What is your character name?:`),
           filter: function(val) {
             return val.toLowerCase();
           }
@@ -83,7 +84,7 @@ exports.character = {
       const playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket);
 
       this.buildCharacter(playerCharacter);
-      this.confirm(`Do you want to use this character?`, playerCharacter);
+      this.confirm(chalkPipe('bgGreen.yellow')(`Do you want to use this character?`), playerCharacter);
 
       });
   },
@@ -99,7 +100,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.confirmAgain(`Are you sure you want to build another character?`, playerCharacter) :
+      !answers.characterConfirmation ? this.confirmAgain(chalkPipe('bgGreen.yellow')(`Are you sure you want to build another character?`), playerCharacter) :
         fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter));
         campaign.launch.tavern(1);
 

@@ -1,13 +1,14 @@
 const inquirer = require(`inquirer`);
 const print = require(`./helpers/printer.js`);
 const player = require(`./character/createCharacter.js`);
+const chalkPipe = require(`chalk-pipe`);
 
 exports.main = {
   questions: [
     {
       type: `list`,
       name: `start`,
-      message: `Lets begin!`,
+      message: chalkPipe('bgGreen.yellow')(`Lets begin!`),
       choices: [`New Game`, `Load Game`, `Exit`],
       filter: function(val) {
         return val.toLowerCase();
