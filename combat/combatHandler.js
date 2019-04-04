@@ -1,4 +1,5 @@
 var dice = require('../rolls.js');
+var print = require('../helpers/printer.js');
 
 exports.actions = {
   handle: function(answer, character, enemy){
@@ -18,11 +19,11 @@ exports.actions = {
         break;
       case "power attack":
             var attack = (character.attackRoll() - 2) + character.warrior.bonus;
-            console.log(`You swing with your mighty ` + answer);
-            console.log(`You rolled a ` + attack);
+            print.text.narration(`You swing with your mighty ` + answer);
+            print.text.narration(`You rolled a ` + attack);
 
             attack >= enemy.armorPoints ?
-              this.powerAttackHit(answer, character, enemy) : console.log(`You missed!`);
+              this.powerAttackHit(answer, character, enemy) : print.text.narration(`You missed!`);
         break;
       case "shield wall":
             character.warrior.shieldWallBuffAmount += (2 + character.warrior.bonus);
@@ -59,24 +60,24 @@ exports.actions = {
   },
 
   attack: function(attack, answer, character, enemy){
-    console.log(`You attack with your ` + answer);
-    console.log(`You rolled a ` + attack);
+    print.text.narration(`You attack with your ` + answer);
+    print.text.narration(`You rolled a ` + attack);
     attack >= enemy.armorPoints ?
-      this.hit(answer, character, enemy) : console.log(`You missed!`);
+      this.hit(answer, character, enemy) : print.text.narration(`You missed!`);
   },
 
   hit: function(answer, character, enemy) {
-    console.log(`You hit the ` + enemy.name + `!`);
+    print.text.narration(`You hit the ` + enemy.name + `!`);
     character.weapons[0] === answer ?
-    console.log(`You dealt ` + character.weaponDamage_0() + ` damage!`) :
-    console.log(`You dealt ` + character.weaponDamage_1() + ` damage!`)
+    print.text.narration(`You dealt ` + character.weaponDamage_0() + ` damage!`) :
+    print.text.narration(`You dealt ` + character.weaponDamage_1() + ` damage!`)
   },
 
   powerAttackHit: function(answer, character, enemy) {
-    console.log(`Your power attack hit the ` + enemy.name + `!`);
+    print.text.narration(`Your power attack hit the ` + enemy.name + `!`);
     character.weapons[0] === answer ?
-    console.log(`You dealt ` + (character.weaponDamage_0() + 2) + ` damage!`) :
-    console.log(`You dealt ` + (character.weaponDamage_1() + 2) + ` damage!`)
+    print.text.narration(`You dealt ` + (character.weaponDamage_0() + 2) + ` damage!`) :
+    print.text.narration(`You dealt ` + (character.weaponDamage_1() + 2) + ` damage!`)
   }
 
 };

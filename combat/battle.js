@@ -4,6 +4,7 @@ const Enemy = require('../enemies/enemy.js');
 const print = require('../helpers/printer.js');
 const combat = require('./combatHandler.js');
 const player = require('../character/createCharacter.js');
+const chalkPipe = require(`chalk-pipe`);
 
 function Battle(enemy){
 
@@ -15,7 +16,7 @@ function Battle(enemy){
         {
           type: 'list',
           name: 'decision',
-          message: 'What do you do?',
+          message: chalkPipe('bgGreen.yellow')('What do you do?'),
           choices: [
               new inquirer.Separator('=== Weapon ==='),
               this.character.weapons[0],

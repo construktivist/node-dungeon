@@ -24,6 +24,10 @@ exports.text = {
     console.log(string);
   },
 
+  narration: (string) => {
+    console.log(chalkPipe('yellow')(string));
+  },
+
   playerStats: (player) => {
     console.log(
       chalkPipe('green.bold')(
