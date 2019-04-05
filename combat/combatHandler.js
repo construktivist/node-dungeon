@@ -30,7 +30,12 @@ exports.actions = {
             console.log(`Shield Wall buff applied! Your Armor Class is now ` + (character.armorPoints + character.warrior.shieldWallBuffAmount));
         break;
       case "hide":
-              //resolve hide roll
+              const hide = character.attackRoll();
+              const spot = dice.roll.d20();
+
+              hide > spot ?
+              print.text.narration(`You are now hidden!`) :
+              print.text.narration(`Your attempt to hide failed!`);
         break;
       case "shadow strike":
               var attack = character.attackRoll() + character.rogue.bonus;
@@ -47,7 +52,8 @@ exports.actions = {
               this.attack(attack, answer, character, enemy);
         break;
       case "heal":
-              //resolve heal roll
+              character.hitPoints += (dice.roll.d6() + character.divine.bonus);
+              print.text.narration(`You have healed yourself. Your health is now ` + character.hitPoints);
         break;
       case "bless":
               //resolve bless roll
