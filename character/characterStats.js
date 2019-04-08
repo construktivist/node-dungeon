@@ -6,12 +6,15 @@ exports.stats = {
     switch (player.race) {
       case `elf`:
           player.hitPoints = 12;
+          player.hitPointsTotal = 12;
         break;
       case `human`:
           player.hitPoints = 15;
+          player.hitPointsTotal = 15;
         break;
         case `dwarf`:
-            player.hitPoints = 18;
+          player.hitPoints = 18;
+          player.hitPointsTotal = 18;
           break;
       default:
         print.text.normal(`Oops. Something went wrong :/`)

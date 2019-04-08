@@ -52,8 +52,13 @@ exports.actions = {
               this.attack(attack, answer, character, enemy);
         break;
       case "heal":
-              character.hitPoints += (dice.roll.d6() + character.divine.bonus);
-              print.text.narration(`You have healed yourself. Your health is now ` + character.hitPoints);
+              if (character.hitPoints >= character.hitPointsTotal){
+                print.text.normal(`Your health is already full.`)
+              }
+              else {
+                character.hitPoints += (dice.roll.d6() + character.divine.bonus)
+                print.text.narration(`You have healed yourself. Your health is now ` + character.hitPoints)
+              };
         break;
       case "bless":
               //resolve bless roll
