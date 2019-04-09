@@ -22,6 +22,7 @@ function Character(name, race, weapons, armor, trinket){
   this.divine = {
     abilities: [`Heal`, `Bless`],
     bonus: 0,
+    blessBuff: false,
   };
   this.gameStatus = {
     campaign: 0,

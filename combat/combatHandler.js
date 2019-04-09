@@ -17,6 +17,7 @@ exports.actions = {
             this.attack(attack, answer, character, enemy);
 
         break;
+
       case "power attack":
             var attack = (character.attackRoll() - 2) + character.warrior.bonus;
             print.text.narration(`You swing with your mighty ` + answer);
@@ -25,32 +26,40 @@ exports.actions = {
             attack >= enemy.armorPoints ?
               this.powerAttackHit(answer, character, enemy) : print.text.narration(`You missed!`);
         break;
+
       case "shield wall":
             character.warrior.shieldWallBuffAmount += (2 + character.warrior.bonus);
             console.log(`Shield Wall buff applied! Your Armor Class is now ` + (character.armorPoints + character.warrior.shieldWallBuffAmount));
         break;
+
       case "hide":
               const hide = character.attackRoll();
               const spot = dice.roll.d20();
 
-              hide > spot ?
-              print.text.narration(`You are now hidden!`) :
-              print.text.narration(`Your attempt to hide failed!`);
+              if (hide > spot) {
+                character.hidden = true;
+                print.text.narration(`You are now hidden!`);
+              }
+              else {
+                print.text.narration(`Your attempt to hide failed!`);
+              }
         break;
+
       case "shadow strike":
               var attack = character.attackRoll() + character.rogue.bonus;
               this.attack(attack, answer, character, enemy);
-
         break;
+
       case "magic missle":
               var attack = character.attackRoll() + character.magic.bonus;
               this.attack(attack, answer, character, enemy);
-
         break;
+
       case "lightning bolt":
               var attack = character.attackRoll() + character.magic.bonus;
               this.attack(attack, answer, character, enemy);
         break;
+
       case "heal":
               if (character.hitPoints >= character.hitPointsTotal){
                 print.text.normal(`Your health is already full.`)
@@ -60,12 +69,23 @@ exports.actions = {
                 print.text.narration(`You have healed yourself. Your health is now ` + character.hitPoints)
               };
         break;
+
       case "bless":
-              //resolve bless roll
+              if(character.blessBuff === false) {
+                character.warrior.bonus += 1;
+                character.rogue.bonus += 1;
+                character.magic.bonus += 1;
+                character.divine.bonus += 1;
+                character.blessBuff = true;
+                print.text.narration(`You have received a blessing`);
+              }
+              else {
+                print.text.normal(`You can only use Bless once per fight encounter.`);
+              }
         break;
 
       default:
-            console.log("Something is wrong");
+            print.text.normal("Something is wrong");
 
     }
   },
