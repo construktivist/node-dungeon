@@ -23,7 +23,8 @@ exports.main = {
           player.character.new();
           break;
         case `load game`:
-
+          const character = player.character.load();
+          character.save > 0 ? console.log(character.save) : console.log(`Error: No save data available.`);
           break;
         case `exit`:
           print.text.normal(`Farewell adventurer!`);
@@ -32,5 +33,5 @@ exports.main = {
           print.text.normal(`Oops. Something went wrong :/`);
       };
     });
-  }
+  },
 }

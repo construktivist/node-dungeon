@@ -17,7 +17,7 @@ exports.stats = {
           player.hitPointsTotal = 18;
           break;
       default:
-        print.text.normal(`Oops. Something went wrong :/`)
+        print.text.normal(`Oops. Something went wrong :/ - race`)
     }
   },
 
@@ -40,7 +40,7 @@ exports.stats = {
           player.shield = 2;
         break;
         default:
-          print.text.normal(`Oops. Something went wrong :/`);
+          print.text.normal(`Oops. Something went wrong :/ - weapon`);
       }
     }
   },
@@ -64,27 +64,27 @@ exports.stats = {
             player.divine.bonus += 2
         break;
         default:
-          print.text.normal(`Oops. Something went wrong :/`);
+          print.text.normal(`Oops. Something went wrong :/ - armor`);
     }
   },
 
   trinkets: function(player){
 
       switch (player.trinket) {
-        case `Necklace of the Paladin`:
+        case `necklace of the paladin`:
             player.warrior.bonus += 1
             player.divine.bonus += 1
           break;
-        case `Ring of the Assassin`:
+        case `ring of the assassin`:
             player.rogue.bonus += 1
             player.magic.bonus += 1
           break;
-        case `Pendant of the Shaman`:
+        case `pendant of the shaman`:
             player.divine.bonus += 1
             player.magic.bonus += 1
         break;
         default:
-          print.text.normal(`Oops. Something went wrong :/`);
+          print.text.normal(`Oops. Something went wrong :/ - trinket`);
     }
   }
 

@@ -7,10 +7,10 @@ exports.launch = {
         tavern.launch.adventureOneRoomOne();
         break;
       case 2:
-        tavern.launch.adventureTwo();
+        tavern.launch.adventureOneRoomTwo();
         break;
       case 3:
-        tavern.launch.adventureThree();
+        tavern.launch.adventureOneRoomThree();
         break;
       default:
         print.text.normal(`Oops. Something went wrong :/`);
