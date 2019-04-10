@@ -71,12 +71,12 @@ exports.actions = {
         break;
 
       case "bless":
-              if(character.blessBuff === false) {
+              if(character.divine.blessBuff === false) {
                 character.warrior.bonus += 1;
                 character.rogue.bonus += 1;
                 character.magic.bonus += 1;
                 character.divine.bonus += 1;
-                character.blessBuff = true;
+                character.divine.blessBuff = true;
                 print.text.narration(`You have received a blessing`);
               }
               else {
