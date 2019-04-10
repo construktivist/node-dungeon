@@ -2,10 +2,14 @@ const inquirer = require(`inquirer`);
 const Room = require(`../buildRoom.js`);
 const resolve = require(`./roomResolutions.js`);
 const chalkPipe = require(`chalk-pipe`);
+const player = require('../character/createCharacter.js');
 
 exports.launch = {
 
   adventureOneRoomOne: () => {
+
+    const character = player.character.load();
+    character.save(`tavern`, 1);
 
     const roomOne = new Room(
       chalkPipe('yellow')("You wake up in the dark basement of a tavern. There is a rat sniffing some trash in the corner. You see an open door to the west and a chest next on a table against the wall."),

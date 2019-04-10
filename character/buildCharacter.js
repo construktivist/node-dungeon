@@ -1,4 +1,6 @@
+const fs = require(`fs`);
 const dice = require(`../rolls.js`);
+
 
 function Character(name, race, weapons, armor, trinket){
   this.name = name;
@@ -24,13 +26,16 @@ function Character(name, race, weapons, armor, trinket){
     bonus: 0,
     blessBuff: false,
   };
-  this.gameStatus = {
-    campaign: 0,
-    adventure: 0,
-    room: 0,
-  };
+  this.gameStatus = [];
 
   this.attackRoll = () => { return dice.roll.d20()};
+
+  this.save = (campaign, room) => {
+    this.gameStatus.campaign = campaign
+    this.gameStatus.room = room
+    fs.writeFile(`./data/character.js`, JSON.stringify(character));
+    console.log("Character Saved!");
+  };
 }
 
 module.exports = Character;

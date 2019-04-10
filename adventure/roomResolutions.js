@@ -2,6 +2,7 @@ const tavern = require(`./tavern.js`);
 const Battle = require(`../combat/battle.js`);
 
 exports.room = {
+
   adventureOneRoomOne: (answer) => {
     switch (answer) {
       case `Go through the open door.`:
