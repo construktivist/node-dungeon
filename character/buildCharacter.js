@@ -26,6 +26,7 @@ function Character(name, race, weapons, armor, trinket){
     bonus: 0,
     blessBuff: false,
   };
+
   this.gameStatus = [];
 
   this.attackRoll = () => { return dice.roll.d20()};
