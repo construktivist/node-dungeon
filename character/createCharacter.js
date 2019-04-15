@@ -121,7 +121,7 @@ exports.character = {
     setPlayerStats.stats.weapons(character);
     setPlayerStats.stats.armor(character);
     setPlayerStats.stats.trinkets(character);
-    // console.log(character);
+    console.log(character);
     print.text.playerStats(character);
   },
 
