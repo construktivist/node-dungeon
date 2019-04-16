@@ -27,16 +27,16 @@ function Character(name, race, weapons, armor, trinket){
     blessBuff: false,
   };
 
-  this.gameStatus = [];
+  // this.gameStatus = [];
 
   this.attackRoll = () => { return dice.roll.d20()};
 
-  this.save = (campaign, room) => {
-    this.gameStatus.campaign = campaign
-    this.gameStatus.room = room
-    fs.writeFile(`./data/character.js`, JSON.stringify(character));
-    console.log("Character Saved!");
-  };
+  // this.save = (campaign, room) => {
+  //   this.gameStatus.campaign = campaign
+  //   this.gameStatus.room = room
+  //   fs.writeFile(`./data/character.js`, JSON.stringify(character));
+  //   console.log("Character Saved!");
+  // };
 }
 
 module.exports = Character;

@@ -16,9 +16,10 @@ function Room(intro, question, prompts, resolve){
   this.runRoom = () => {
 
     // console.log(JSON.parse(fs.readFileSync('./data/character.js')));
-    // console.log(this.character);
+    console.log(this.character);
     // this.character.save(`tavern`, 1);
     // console.log(this.character.gameStatus);
+
 
     print.text.narration(this.intro);
     inquirer.prompt(
