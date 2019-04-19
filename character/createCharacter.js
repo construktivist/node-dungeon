@@ -111,6 +111,8 @@ exports.character = {
     const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
     const playerCharacter = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket);
 
+
+
     this.buildCharacter(playerCharacter);
     return playerCharacter;
 
