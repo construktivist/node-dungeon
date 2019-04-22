@@ -101,17 +101,16 @@ exports.character = {
       ]
     ).then(answers => {
       !answers.characterConfirmation ? this.confirmAgain(chalkPipe('bgGreen.yellow')(`Are you sure you want to build another character?`), playerCharacter) :
-        fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter));
+      fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter), (err) => {
+        if (err) throw err;
         campaign.launch.tavern(1);
-
+      });
     });
   },
 
   load: function(){
     const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
     const playerCharacter = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket);
-
-
 
     this.buildCharacter(playerCharacter);
     return playerCharacter;
@@ -123,7 +122,7 @@ exports.character = {
     setPlayerStats.stats.weapons(character);
     setPlayerStats.stats.armor(character);
     setPlayerStats.stats.trinkets(character);
-    console.log(character);
+    // console.log(character);
     print.text.playerStats(character);
   },
 
@@ -139,9 +138,10 @@ exports.character = {
       ]
     ).then(answers => {
       !answers.characterConfirmation ? this.new() :
-        fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter));
-        campaign.launch.tavern(1);
-
+        fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter), (err) => {
+          if (err) throw err;
+          campaign.launch.tavern(1);
+        });
     });
   }
 
