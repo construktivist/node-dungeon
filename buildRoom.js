@@ -14,7 +14,7 @@ function Room(intro, question, prompts, resolve){
 
     console.log(this.character);
     this.character.save(this.character, `tavern`, 1);
-    // console.log(this.character.gameStatus);
+    console.log(this.character.gameStatus);
 
 
     print.text.narration(this.intro);

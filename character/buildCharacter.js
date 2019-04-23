@@ -32,8 +32,8 @@ function Character(name, race, weapons, armor, trinket){
   this.attackRoll = () => { return dice.roll.d20()};
 
   this.save = (character, campaign, room) => {
-    this.gameStatus.campaign = campaign
-    this.gameStatus.room = room
+    this.gameStatus[0] = campaign;
+    this.gameStatus[1] = room;
     fs.writeFile(`./data/character.js`, JSON.stringify(character), (err) => {
       if (err) throw err;
       console.log("Character Saved!");
