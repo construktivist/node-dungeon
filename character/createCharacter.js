@@ -110,7 +110,7 @@ exports.character = {
 
   load: function(){
     const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
-    const playerCharacter = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket);
+    const playerCharacter = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket, characterData.gameStatus);
 
     this.buildCharacter(playerCharacter);
     return playerCharacter;

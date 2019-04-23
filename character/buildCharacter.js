@@ -2,7 +2,7 @@ const fs = require(`fs`);
 const dice = require(`../rolls.js`);
 
 
-function Character(name, race, weapons, armor, trinket){
+function Character(name, race, weapons, armor, trinket, gameStatus){
   this.name = name;
   this.race = race;
   this.weapons = weapons;
@@ -27,7 +27,7 @@ function Character(name, race, weapons, armor, trinket){
     blessBuff: false,
   };
 
-  this.gameStatus = [];
+  this.gameStatus = gameStatus;
 
   this.attackRoll = () => { return dice.roll.d20()};
 
