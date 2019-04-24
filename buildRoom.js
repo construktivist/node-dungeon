@@ -3,17 +3,18 @@ const inquirer = require(`inquirer`);
 const print = require(`./helpers/printer.js`);
 const player = require('./character/createCharacter.js');
 
-function Room(intro, question, prompts, resolve){
+function Room(intro, question, prompts, campaign, room, resolve){
   this.intro = intro;
   this.question = question;
   this.prompts = prompts;
+  this.campaign = campaign;
+  this.room = room;
   this.resolve = resolve;
   this.character = player.character.load();
 
   this.runRoom = () => {
 
-    console.log(this.character);
-    this.character.save(this.character, `tavern`, 1);
+    this.character.save(this.character, this.campaign, this.room);
     console.log(this.character.gameStatus);
 
 

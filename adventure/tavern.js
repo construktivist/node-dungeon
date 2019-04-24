@@ -13,6 +13,8 @@ exports.launch = {
       ["Go through the open door.",
       "Fight the rat.",
       "Check the chest."],
+      'tavern',
+      1,
       resolve.room.adventureOneRoomOne);
 
       roomOne.runRoom();
@@ -25,7 +27,9 @@ exports.launch = {
       chalkPipe('yellow')("You walk into a empty room. There is a open door to the north and another door to the south."),
       chalkPipe('bgGreen.yellow')("What door do you go through?"),
       ["Northern Door",
-      "Southern Door"]
+      "Southern Door"],
+      'tavern',
+      2
       );
 
       roomTwo.runRoom();
