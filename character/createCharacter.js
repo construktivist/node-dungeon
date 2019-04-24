@@ -103,7 +103,7 @@ exports.character = {
       !answers.characterConfirmation ? this.confirmAgain(chalkPipe('bgGreen.yellow')(`Are you sure you want to build another character?`), playerCharacter) :
       fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter), (err) => {
         if (err) throw err;
-        campaign.launch.tavern(1);
+        campaign.select.launch('tavern', 1);
       });
     });
   },
@@ -140,7 +140,7 @@ exports.character = {
       !answers.characterConfirmation ? this.new() :
         fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter), (err) => {
           if (err) throw err;
-          campaign.launch.tavern(1);
+          campaign.select.launch('tavern', 1);
         });
     });
   }

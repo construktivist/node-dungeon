@@ -39,7 +39,3 @@ exports.launch = {
 
 
 };
-
-// const tavern = require('./tavern.js');
-//
-// tavern.launch.adventureOneRoomOne();
