@@ -1,9 +1,11 @@
+//Main menu that is displayed on app start
 const inquirer = require(`inquirer`);
 const print = require(`./helpers/printer.js`);
 const player = require(`./character/createCharacter.js`);
 const campaign = require(`./campaign/campaignSelect.js`);
 const chalkPipe = require(`chalk-pipe`);
 
+//List inquirer questions for main menu options (New Game, Load Game, Exit Game)
 exports.main = {
   questions: [
     {
@@ -17,6 +19,7 @@ exports.main = {
     }
   ],
 
+  //Inquire prompt that handles the inquirer questions
   inquire: function () {
     inquirer.prompt(this.questions).then(answers => {
       switch (answers.start){

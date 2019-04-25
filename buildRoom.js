@@ -1,8 +1,10 @@
+// The following module is a constructor that builds and displays rooms.
 const fs = require(`fs`);
 const inquirer = require(`inquirer`);
 const print = require(`./helpers/printer.js`);
 const player = require('./character/createCharacter.js');
 
+//The Room constructor passes all parameters required to build and print a room to the CLI
 function Room(intro, question, prompts, campaign, room, resolve){
   this.intro = intro;
   this.question = question;
@@ -12,12 +14,14 @@ function Room(intro, question, prompts, campaign, room, resolve){
   this.resolve = resolve;
   this.character = player.character.load();
 
+  //This is the functions that is called to run the room.
   this.runRoom = () => {
 
+    //This part saves the campaign and room to the character so the player can resume from the point they left off.
     this.character.save(this.character, this.campaign, this.room);
     console.log(this.character.gameStatus);
 
-
+    //Intro description and inquirer function that displays room description and room options
     print.text.narration(this.intro);
     inquirer.prompt(
       [
@@ -25,7 +29,7 @@ function Room(intro, question, prompts, campaign, room, resolve){
           type: `list`,
           name: `decision`,
           message: this.question,
-          choices: prompts
+          choices: this.prompts
         },
       ]
     ).then(answers => {
