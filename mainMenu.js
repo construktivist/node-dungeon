@@ -23,14 +23,17 @@ exports.main = {
   inquire: function () {
     inquirer.prompt(this.questions).then(answers => {
       switch (answers.start){
+        //Creates a New Game
         case `new game`:
           player.character.new();
           break;
+        //Loads a Save File
         case `load game`:
           const character = player.character.load();
           console.log(character);
           character.gameStatus.length > 0 ? campaign.select.launch(character.gameStatus[0], character.gameStatus[1]) : console.log(`Error: No save data available.`);
           break;
+        //Exits the application
         case `exit`:
           print.text.normal(`Farewell adventurer!`);
           break;
