@@ -109,6 +109,13 @@ exports.actions = {
     character.weapons[0] === answer ?
     print.text.narration(`You dealt ` + (character.weaponDamage_0() + 2) + ` damage!`) :
     print.text.narration(`You dealt ` + (character.weaponDamage_1() + 2) + ` damage!`)
+  },
+
+  enemyTurn: function(character, enemy){
+    print.text.narration('The ' + enemy.name + ' attacks!');
+    enemy.attackRoll() > character.armorPoints ? 
+    print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!') :
+    print.text.narration('The ' + enemy.name + ' attacks and misses you!')
   }
 
 };
