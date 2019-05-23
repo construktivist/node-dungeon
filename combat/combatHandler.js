@@ -15,6 +15,7 @@ exports.actions = {
       case 'mace':
             var attack = character.attackRoll();
             this.attack(attack, answer, character, enemy);
+            this.enemyTurn(character, enemy)
 
         break;
 
@@ -112,6 +113,7 @@ exports.actions = {
   },
 
   enemyTurn: function(character, enemy){
+    print.text.narration('The ' + enemy.name + ' health is ' + enemy.healthPoints);
     print.text.narration('The ' + enemy.name + ' attacks!');
     enemy.attackRoll() > character.armorPoints ? 
     print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!') :
