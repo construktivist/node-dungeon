@@ -15,7 +15,7 @@ exports.actions = {
       case 'mace':
             var attack = character.attackRoll();
             this.attack(attack, answer, character, enemy);
-            this.enemyTurn(character, enemy)
+            this.enemyTurn(character, enemy);
 
         break;
 
@@ -26,11 +26,13 @@ exports.actions = {
 
             attack >= enemy.armorPoints ?
               this.powerAttackHit(answer, character, enemy) : print.text.narration(`You missed!`);
+              this.enemyTurn(character, enemy);
         break;
 
       case "shield wall":
             character.warrior.shieldWallBuffAmount += (2 + character.warrior.bonus);
-            console.log(`Shield Wall buff applied! Your Armor Class is now ` + (character.armorPoints + character.warrior.shieldWallBuffAmount));
+            print.text.narration(`Shield Wall buff applied! Your Armor Class is now ` + (character.armorPoints + character.warrior.shieldWallBuffAmount));
+            this.enemyTurn(character, enemy);
         break;
 
       case "hide":
@@ -43,31 +45,37 @@ exports.actions = {
               }
               else {
                 print.text.narration(`Your attempt to hide failed!`);
+                this.enemyTurn(character, enemy);
               }
         break;
 
       case "shadow strike":
               var attack = character.attackRoll() + character.rogue.bonus;
               this.attack(attack, answer, character, enemy);
+              this.enemyTurn(character, enemy);
         break;
 
       case "magic missle":
               var attack = character.attackRoll() + character.magic.bonus;
               this.attack(attack, answer, character, enemy);
+              this.enemyTurn(character, enemy);
         break;
 
       case "lightning bolt":
               var attack = character.attackRoll() + character.magic.bonus;
               this.attack(attack, answer, character, enemy);
+              this.enemyTurn(character, enemy);
         break;
 
       case "heal":
               if (character.hitPoints >= character.hitPointsTotal){
                 print.text.normal(`Your health is already full.`)
+                this.enemyTurn(character, enemy);
               }
               else {
                 character.hitPoints += (dice.roll.d6() + character.divine.bonus)
                 print.text.narration(`You have healed yourself. Your health is now ` + character.hitPoints)
+                this.enemyTurn(character, enemy);
               };
         break;
 
@@ -79,9 +87,11 @@ exports.actions = {
                 character.divine.bonus += 1;
                 character.divine.blessBuff = true;
                 print.text.narration(`You have received a blessing`);
+                this.enemyTurn(character, enemy);
               }
               else {
                 print.text.normal(`You can only use Bless once per fight encounter.`);
+                this.enemyTurn(character, enemy);
               }
         break;
 

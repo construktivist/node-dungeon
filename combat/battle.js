@@ -45,6 +45,11 @@ function Battle(enemy){
     inquirer.prompt(this.questions).then(answers => {
       combat.actions.handle(answers.decision, this.character, this.enemy);
     });
+  };
+
+  this.continue = (character, enemy) => {
+    print.text.playerStats(character)
+    print.text.enemyStats(enemy);
   }
 
 }
