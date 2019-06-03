@@ -1,5 +1,5 @@
-var dice = require('../rolls.js');
-var print = require('../helpers/printer.js');
+const dice = require('../rolls.js');
+const print = require('../helpers/printer.js');
 
 exports.actions = {
   handle: function(answer, character, enemy){
