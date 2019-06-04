@@ -128,6 +128,32 @@ exports.actions = {
     enemy.attackRoll() > character.armorPoints ? 
     print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!') :
     print.text.narration('The ' + enemy.name + ' attacks and misses you!')
-  }
+  },
+
+  checkHealth: function(character, enemy){
+
+    if (player.hitPoints > 0 && enemy.healthPoints <= 0){
+      this.playerWins(character, enemy);
+    }
+    else if (player.hitPoints <= 0 && enemy.healthPoints >= 0){
+      this.enemyWins(player, enemy);
+    }
+    else {
+      console.log('Battle should continue here');
+      
+      // this.run(player, enemy);
+    }
+
+  },
+
+  playerWins: function(character){
+    console.log('Player wins!');
+    
+  },
+
+  enemyWins: function(enemy){
+    console.log('Enemy wins!');
+    
+  },
 
 };

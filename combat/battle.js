@@ -47,29 +47,6 @@ function Battle(enemy){
     });
   };
 
-  this.playerWins = (player, enemy) => {
-    console.log('Player Wins!');
-  }
-
-  this.enemyWins = (player, enemy) => {
-    console.log('Enemy Wins!');
-  }
-
-  this.continue = (player, enemy) => {
-      
-    if (player.hitPoints > 0 && enemy.healthPoints <= 0){
-      this.playerWins(character, enemy);
-    }
-    else if (player.hitPoints <= 0 && enemy.healthPoints >= 0){
-      this.enemyWins(player, enemy);
-    }
-    else {
-      console.log('Battle should continue here');
-      
-      // this.run(player, enemy);
-    }
-  }
-
 }
 
 module.exports = Battle;
