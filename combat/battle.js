@@ -2,8 +2,8 @@ const inquirer = require(`inquirer`);
 const fs = require(`fs`);
 const Enemy = require('../enemies/enemy.js');
 const print = require('../helpers/printer.js');
-const combat = require('./combatHandler.js');
 const player = require('../character/createCharacter.js');
+const dice = require('../rolls.js');
 const chalkPipe = require(`chalk-pipe`);
 
 function Battle(enemy){
@@ -173,6 +173,7 @@ function Battle(enemy){
     enemy.attackRoll() > character.armorPoints ? 
     print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!') :
     print.text.narration('The ' + enemy.name + ' attacks and misses you!')
+    this.run();
   };
 
   this.checkHealth = function(character, enemy){
