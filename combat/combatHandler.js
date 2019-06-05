@@ -1,4 +1,4 @@
-const dice = require('../rolls.js');
+
 const print = require('../helpers/printer.js');
 
 exports.actions = {
