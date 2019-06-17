@@ -11,7 +11,7 @@ exports.main = {
     {
       type: `list`,
       name: `start`,
-      message: chalkPipe('bgGreen.yellow')(`Lets begin!`),
+      message: chalkPipe('gray')(`Lets begin!`),
       choices: [`New Game`, `Load Game`, `Exit`],
       filter: function(val) {
         return val.toLowerCase();

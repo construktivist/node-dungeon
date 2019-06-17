@@ -16,7 +16,7 @@ function Battle(enemy){
         {
           type: 'list',
           name: 'decision',
-          message: chalkPipe('bgGreen.yellow')('What do you do?'),
+          message: chalkPipe('gray')('What do you do?'),
           choices: [
               new inquirer.Separator('=== Weapon ==='),
               this.character.weapons[0],
