@@ -155,9 +155,23 @@ function Battle(enemy){
 
   this.hit = function(answer, character, enemy) {
     print.text.narration(`You hit the ` + enemy.name + `!`);
-    character.weapons[0] === answer ?
-    print.text.narration(`You dealt ` + character.weaponDamage_0() + ` damage!`) :
-    print.text.narration(`You dealt ` + character.weaponDamage_1() + ` damage!`)
+    character.weapons[0] === answer 
+    if (character.weapons[0] === answer ) {
+      var characterDamage = character.weaponDamage_0();
+      console.log(characterDamage);
+      console.log(enemy.healthPoints);
+      enemy.healthPoints -= characterDamage;
+      console.log(enemy.healthPoints);
+      print.text.narration(`You dealt ` + characterDamage + ` damage!`)
+    }
+    else {
+      var characterDamage = character.weaponDamage_0();
+      console.log(characterDamage);
+      console.log(enemy.healthPoints);
+      enemy.healthPoints -= characterDamage;
+      console.log(enemy.healthPoints);
+      print.text.narration(`You dealt ` + characterDamage + ` damage!`)
+    }
   };
 
   this.powerAttackHit = function(answer, character, enemy) {
@@ -168,6 +182,7 @@ function Battle(enemy){
   };
 
   this.enemyTurn = function(character, enemy){
+    this.checkHealth();
     print.text.narration('The ' + enemy.name + ' health is ' + enemy.healthPoints);
     print.text.narration('The ' + enemy.name + ' attacks!');
     enemy.attackRoll() > character.armorPoints ? 
