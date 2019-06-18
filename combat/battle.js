@@ -48,9 +48,9 @@ function Battle(enemy){
   };
 
   this.handle = (answer, character, enemy) => {
-    console.log(answer);
-    console.log(character);
-    console.log(enemy.name);
+    // console.log(answer);
+    // console.log(character);
+    // console.log(enemy.name);
 
     switch (answer) {
       case 'sword':
@@ -60,7 +60,6 @@ function Battle(enemy){
       case 'mace':
             var attack = character.attackRoll();
             this.attack(attack, answer, character, enemy);
-            this.enemyTurn(character, enemy);
 
         break;
 
@@ -158,19 +157,21 @@ function Battle(enemy){
     character.weapons[0] === answer 
     if (character.weapons[0] === answer ) {
       var characterDamage = character.weaponDamage_0();
-      console.log(characterDamage);
-      console.log(enemy.healthPoints);
+      // console.log(characterDamage);
+      // console.log(enemy.healthPoints);
       enemy.healthPoints -= characterDamage;
-      console.log(enemy.healthPoints);
+      // console.log(enemy.healthPoints);
       print.text.narration(`You dealt ` + characterDamage + ` damage!`)
+      this.checkHealth(character, enemy)
     }
     else {
       var characterDamage = character.weaponDamage_0();
-      console.log(characterDamage);
-      console.log(enemy.healthPoints);
+      // console.log(characterDamage);
+      // console.log(enemy.healthPoints);
       enemy.healthPoints -= characterDamage;
-      console.log(enemy.healthPoints);
+      // console.log(enemy.healthPoints);
       print.text.narration(`You dealt ` + characterDamage + ` damage!`)
+      this.checkHealth(character, enemy)
     }
   };
 
@@ -182,27 +183,31 @@ function Battle(enemy){
   };
 
   this.enemyTurn = function(character, enemy){
-    this.checkHealth();
     print.text.narration('The ' + enemy.name + ' health is ' + enemy.healthPoints);
     print.text.narration('The ' + enemy.name + ' attacks!');
     enemy.attackRoll() > character.armorPoints ? 
     print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!') :
     print.text.narration('The ' + enemy.name + ' attacks and misses you!')
-    this.run();
+    this.checkHealth(character, enemy);
   };
 
   this.checkHealth = function(character, enemy){
 
-    if (player.hitPoints > 0 && enemy.healthPoints <= 0){
+    if (character.hitPoints > 0 && enemy.healthPoints <= 0){
+      console.log(character.hitPoints);
+      console.log(enemy.healthPoints);
       this.playerWins(character, enemy);
     }
-    else if (player.hitPoints <= 0 && enemy.healthPoints >= 0){
-      this.enemyWins(player, enemy);
+    else if (character.hitPoints <= 0 && enemy.healthPoints > 0){
+      console.log(character.hitPoints);
+      console.log(enemy.healthPoints);
+      this.enemyWins(character, enemy);
     }
     else {
+      console.log(character.hitPoints);
+      console.log(enemy.healthPoints);
       console.log('Battle should continue here');
-      
-      // this.run(player; enemy);
+      this.run();
     }
 
   };
