@@ -12,6 +12,8 @@ function Battle(enemy){
 
   this.character = player.character.load();
 
+  this.playerTurn = true;
+
   this.questions = [
         {
           type: 'list',
@@ -41,10 +43,17 @@ function Battle(enemy){
     ];
 
   this.run = () => {
-    print.text.enemyStats(this.enemy);
-    inquirer.prompt(this.questions).then(answers => {
-      this.handle(answers.decision, this.character, this.enemy);
-    });
+    if (this.playerTurn === true) {
+      this.playerTurn = false;
+      print.text.enemyStats(this.enemy);
+      inquirer.prompt(this.questions).then(answers => {
+        this.handle(answers.decision, this.character, this.enemy);
+      });
+    } 
+    else {
+      this.playerTurn = true;
+      this.enemyTurn(character, enemy);
+    }
   };
 
   this.handle = (answer, character, enemy) => {
@@ -183,6 +192,8 @@ function Battle(enemy){
   };
 
   this.enemyTurn = function(character, enemy){
+    console.log("Enemy Turn fired.");
+    
     print.text.narration('The ' + enemy.name + ' health is ' + enemy.healthPoints);
     print.text.narration('The ' + enemy.name + ' attacks!');
     enemy.attackRoll() > character.armorPoints ? 

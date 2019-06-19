@@ -5,7 +5,7 @@ function Enemy(enemy){
   switch (enemy) {
     case "rat":
       this.name = enemy;
-      this.healthPoints = dice.roll.d4();
+      this.healthPoints = 30 /*dice.roll.d4()*/;
       this.armorPoints = dice.roll.d6();
       this.attackRoll = () => {return dice.roll.d20()};
       this.damageRoll = () => {return dice.roll.d4()};
