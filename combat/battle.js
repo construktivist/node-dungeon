@@ -42,7 +42,7 @@ function Battle(enemy){
         }
     ];
 
-  this.run = () => {
+  this.run = (character, enemy) => {
     if (this.playerTurn === true) {
       this.playerTurn = false;
       print.text.enemyStats(this.enemy);
@@ -196,11 +196,18 @@ function Battle(enemy){
     
     print.text.narration('The ' + enemy.name + ' health is ' + enemy.healthPoints);
     print.text.narration('The ' + enemy.name + ' attacks!');
-    enemy.attackRoll() > character.armorPoints ? 
-    print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!') :
-    print.text.narration('The ' + enemy.name + ' attacks and misses you!')
-    this.checkHealth(character, enemy);
-  };
+
+    if (enemy.attackRoll() > character.armorPoints) {
+      var enemyDamage = enemy.damageRoll();
+      character.hitPoints -= enemyDamage;
+      print.text.narration('The ' + enemy.name + ' attacks and hits you for ' + enemy.damageRoll() + ' damage!');
+      this.checkHealth(character, enemy);
+    }
+    else {
+      print.text.narration('The ' + enemy.name + ' attacks and misses you!')
+      this.checkHealth(character, enemy);
+    }
+  };  
 
   this.checkHealth = function(character, enemy){
 
@@ -218,7 +225,7 @@ function Battle(enemy){
       console.log(character.hitPoints);
       console.log(enemy.healthPoints);
       console.log('Battle should continue here');
-      this.run();
+      this.run(this.character, this.enemy);
     }
 
   };
