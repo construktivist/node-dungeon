@@ -1,10 +1,12 @@
 const inquirer = require(`inquirer`);
 const fs = require(`fs`);
+const menu = require('../mainMenu');
 const Enemy = require('../enemies/enemy.js');
 const print = require('../helpers/printer.js');
 const player = require('../character/createCharacter.js');
 const dice = require('../rolls.js');
 const chalkPipe = require(`chalk-pipe`);
+
 
 function Battle(enemy){
 
@@ -237,7 +239,26 @@ function Battle(enemy){
 
   this.enemyWins = function(enemy){
     console.log('Enemy wins!');
-    
+    print.text.narration('The ' + enemy.name + ' rat has defeated you.');
+
+    inquirer.prompt(
+      [
+        {
+          type: 'list',
+          name: 'decision',
+          message: chalkPipe('gray')('You have died.'),
+          choices: [
+            'Reload',
+            'Main Menu'
+          ],
+          filter: function(val) {
+            return val.toLowerCase();
+          }
+        }
+    ] ).then(answer => {
+      answer == 'reload' ? console.log('Load game') :  menu.main.inquire();
+    });
+
   };
 
 };
