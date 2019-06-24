@@ -5,10 +5,10 @@ function Enemy(enemy){
   switch (enemy) {
     case "rat":
       this.name = enemy;
-      this.healthPoints = 30 /*dice.roll.d4()*/;
+      this.healthPoints = dice.roll.d4();
       this.armorPoints = dice.roll.d6();
-      this.attackRoll = () => {return 20 /*dice.roll.d20()*/};
-      this.damageRoll = () => {return 20 /*dice.roll.d4()*/};
+      this.attackRoll = () => {dice.roll.d20()};
+      this.damageRoll = () => {dice.roll.d4()};
       break;
     case "spider":
       this.name = enemy;

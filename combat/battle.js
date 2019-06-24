@@ -159,8 +159,13 @@ function Battle(enemy){
   this.attack = function(attack, answer, character, enemy){
     print.text.narration(`You attack with your ` + answer);
     print.text.narration(`You rolled a ` + attack);
-    attack >= enemy.armorPoints ?
-      this.hit(answer, character, enemy) : print.text.narration(`You missed!`);
+    if (attack >= enemy.armorPoints) {
+      this.hit(answer, character, enemy)
+    }
+    else {
+      print.text.narration(`You missed!`);
+      this.enemyTurn(character, enemy);
+    }
   };
 
   this.hit = function(answer, character, enemy) {
@@ -168,19 +173,14 @@ function Battle(enemy){
     character.weapons[0] === answer 
     if (character.weapons[0] === answer ) {
       var characterDamage = character.weaponDamage_0();
-      // console.log(characterDamage);
-      // console.log(enemy.healthPoints);
       enemy.healthPoints -= characterDamage;
-      // console.log(enemy.healthPoints);
       print.text.narration(`You dealt ` + characterDamage + ` damage!`)
       this.checkHealth(character, enemy)
     }
     else {
       var characterDamage = character.weaponDamage_0();
-      // console.log(characterDamage);
-      // console.log(enemy.healthPoints);
       enemy.healthPoints -= characterDamage;
-      // console.log(enemy.healthPoints);
+
       print.text.narration(`You dealt ` + characterDamage + ` damage!`)
       this.checkHealth(character, enemy)
     }
@@ -194,7 +194,6 @@ function Battle(enemy){
   };
 
   this.enemyTurn = function(character, enemy){
-    console.log("Enemy Turn fired.");
     
     print.text.narration('The ' + enemy.name + ' health is ' + enemy.healthPoints);
     print.text.narration('The ' + enemy.name + ' attacks!');
@@ -214,19 +213,12 @@ function Battle(enemy){
   this.checkHealth = function(character, enemy){
 
     if (character.hitPoints > 0 && enemy.healthPoints <= 0){
-      console.log(character.hitPoints);
-      console.log(enemy.healthPoints);
       this.playerWins(character, enemy);
     }
     else if (character.hitPoints <= 0 && enemy.healthPoints > 0){
-      console.log(character.hitPoints);
-      console.log(enemy.healthPoints);
       this.enemyWins(character, enemy);
     }
     else {
-      console.log(character.hitPoints);
-      console.log(enemy.healthPoints);
-      console.log('Battle should continue here');
       this.run(this.character, this.enemy);
     }
 
@@ -248,8 +240,7 @@ function Battle(enemy){
           name: 'decision',
           message: chalkPipe('gray')('You have died.'),
           choices: [
-            'Reload',
-            'Main Menu'
+            'Reload'
           ],
           filter: function(val) {
             return val.toLowerCase();
