@@ -76,12 +76,12 @@ function Battle(enemy){
 
       case "power attack":
             var attack = (character.attackRoll() - 2) + character.warrior.bonus;
-            print.text.narration(`You swing with your mighty ` + answer);
+            print.text.narration(`You use your power attack!`);
             print.text.narration(`You rolled a ` + attack);
 
             attack >= enemy.armorPoints ?
               this.powerAttackHit(answer, character, enemy) : print.text.narration(`You missed!`);
-              this.enemyTurn(character, enemy);
+              
         break;
 
       case "shield wall":
@@ -168,11 +168,11 @@ function Battle(enemy){
     }
   };
 
-  this.hit = function(answer, character, enemy) {
+  this.hit = function(answer, character, enemy, bonus) {
     print.text.narration(`You hit the ` + enemy.name + `!`);
     character.weapons[0] === answer 
     if (character.weapons[0] === answer ) {
-      var characterDamage = character.weaponDamage_0();
+      var characterDamage = character.weaponDamage_0() + bonus;
       enemy.healthPoints -= characterDamage;
       print.text.narration(`You dealt ` + characterDamage + ` damage!`)
       this.checkHealth(character, enemy)
@@ -188,9 +188,10 @@ function Battle(enemy){
 
   this.powerAttackHit = function(answer, character, enemy) {
     print.text.narration(`Your power attack hit the ` + enemy.name + `!`);
-    character.weapons[0] === answer ?
-    print.text.narration(`You dealt ` + (character.weaponDamage_0() + 2) + ` damage!`) :
-    print.text.narration(`You dealt ` + (character.weaponDamage_1() + 2) + ` damage!`)
+    var powerAttackDamage = (character.weaponDamage_0() + 2);
+    enemy.healthPoints -= powerAttackDamage;
+    print.text.narration(`You dealt ` + powerAttackDamage + ` damage!`);
+    this.checkHealth(character, enemy);
   };
 
   this.enemyTurn = function(character, enemy){
@@ -226,6 +227,8 @@ function Battle(enemy){
 
   this.playerWins = function(character){
     console.log('Player wins!');
+    //loot
+    //
     
   };
 
