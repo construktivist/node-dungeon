@@ -96,7 +96,8 @@ function Battle(enemy){
 
               if (hide > spot) {
                 character.hidden = true;
-                print.text.narration(`You are now hidden!`);
+                print.text.narration(`You hide and sneak away!`);
+                this.enemyTurn(character, enemy);
               }
               else {
                 print.text.narration(`Your attempt to hide failed!`);
@@ -107,19 +108,17 @@ function Battle(enemy){
       case "shadow strike":
               var attack = character.attackRoll() + character.rogue.bonus;
               this.attack(attack, answer, character, enemy);
-              this.enemyTurn(character, enemy);
+              this.checkHealth(character, enemy);
         break;
 
       case "magic missle":
               var attack = character.attackRoll() + character.magic.bonus;
               this.attack(attack, answer, character, enemy);
-              this.enemyTurn(character, enemy);
         break;
 
       case "lightning bolt":
               var attack = character.attackRoll() + character.magic.bonus;
               this.attack(attack, answer, character, enemy);
-              this.enemyTurn(character, enemy);
         break;
 
       case "heal":
