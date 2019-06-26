@@ -79,8 +79,13 @@ function Battle(enemy){
             print.text.narration(`You use your power attack!`);
             print.text.narration(`You rolled a ` + attack);
 
-            attack >= enemy.armorPoints ?
-              this.powerAttackHit(answer, character, enemy) : print.text.narration(`You missed!`);
+            if (attack >= enemy.armorPoints){
+              this.powerAttackHit(answer, character, enemy);
+            }
+            else {
+              print.text.narration(`You missed!`);
+              this.checkHealth(character, enemy);
+            }
               
         break;
 

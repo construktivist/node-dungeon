@@ -6,7 +6,7 @@ function Enemy(enemy){
     case "rat":
       this.name = enemy;
       this.healthPoints = dice.roll.d4();
-      this.armorPoints = dice.roll.d6();
+      this.armorPoints = 100 /*dice.roll.d6()*/;
       this.attackRoll = () => {dice.roll.d20()};
       this.damageRoll = () => {dice.roll.d4()};
       break;
