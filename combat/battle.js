@@ -92,7 +92,7 @@ function Battle(enemy){
       case "shield wall":
             character.warrior.shieldWallBuffAmount += (2 + character.warrior.bonus);
             print.text.narration(`Shield Wall buff applied! Your Armor Class is now ` + (character.armorPoints + character.warrior.shieldWallBuffAmount));
-            this.enemyTurn(character, enemy);
+            this.checkHealth(character, enemy);
         break;
 
       case "hide":
@@ -101,12 +101,12 @@ function Battle(enemy){
 
               if (hide > spot) {
                 character.hidden = true;
-                print.text.narration(`You hide and sneak away!`);
-                this.enemyTurn(character, enemy);
+                print.text.narration(`You hide in the shadows`);
+                this.checkHealth(character, enemy);
               }
               else {
                 print.text.narration(`Your attempt to hide failed!`);
-                this.enemyTurn(character, enemy);
+                this.checkHealth(character, enemy);
               }
         break;
 
@@ -129,12 +129,12 @@ function Battle(enemy){
       case "heal":
               if (character.hitPoints >= character.hitPointsTotal){
                 print.text.normal(`Your health is already full.`)
-                this.enemyTurn(character, enemy);
+                this.checkHealth(character, enemy);
               }
               else {
                 character.hitPoints += (dice.roll.d6() + character.divine.bonus)
                 print.text.narration(`You have healed yourself. Your health is now ` + character.hitPoints)
-                this.enemyTurn(character, enemy);
+                this.checkHealth(character, enemy);
               };
         break;
 
@@ -146,11 +146,11 @@ function Battle(enemy){
                 character.divine.bonus += 1;
                 character.divine.blessBuff = true;
                 print.text.narration(`You have received a blessing`);
-                this.enemyTurn(character, enemy);
+                this.checkHealth(character, enemy);
               }
               else {
                 print.text.normal(`You can only use Bless once per fight encounter.`);
-                this.enemyTurn(character, enemy);
+                this.checkHealth(character, enemy);
               }
         break;
 
