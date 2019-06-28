@@ -7,8 +7,8 @@ function Enemy(enemy){
       this.name = enemy;
       this.healthPoints = 20 /*dice.roll.d4()*/;
       this.armorPoints = dice.roll.d6();
-      this.attackRoll = () => {dice.roll.d20()};
-      this.damageRoll = () => {dice.roll.d4()};
+      this.attackRoll = () => 20 /*{dice.roll.d20()}*/;
+      this.damageRoll = () => 10 /*{dice.roll.d4()}*/;
       break;
     case "spider":
       this.name = enemy;

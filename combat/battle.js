@@ -247,14 +247,15 @@ function Battle(enemy){
           name: 'decision',
           message: chalkPipe('gray')('You have died.'),
           choices: [
-            'Reload'
+            'Reload',
+            'Main Menu'
           ],
           filter: function(val) {
             return val.toLowerCase();
           }
         }
     ] ).then(answer => {
-      answer == 'reload' ? console.log('Load game') :  menu.main.inquire();
+      (answer.decision == 'reload') ? menu.main.load() : menu.main.inquire()
     });
 
   };

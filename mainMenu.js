@@ -29,9 +29,7 @@ exports.main = {
           break;
         //Loads a Save File
         case `load game`:
-          const character = player.character.load();
-          console.log(character);
-          character.gameStatus.length > 0 ? campaign.select.launch(character.gameStatus[0], character.gameStatus[1]) : console.log(`Error: No save data available.`);
+        this.load();
           break;
         //Exits the application
         case `exit`:
@@ -42,4 +40,11 @@ exports.main = {
       };
     });
   },
+
+  //Function to load. This can be used globally.
+  load: function () {
+    const character = player.character.load();
+    console.log(character);
+    character.gameStatus.length > 0 ? campaign.select.launch(character.gameStatus[0], character.gameStatus[1]) : console.log(`Error: No save data available.`);
+  }
 }
