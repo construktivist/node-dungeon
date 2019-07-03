@@ -7,15 +7,19 @@ const player = require('../character/createCharacter.js');
 const dice = require('../rolls.js');
 const chalkPipe = require(`chalk-pipe`);
 
-
+// Object below runs the entire battle logic. 
 function Battle(enemy){
 
+  //Build enemy     
   this.enemy = new Enemy(enemy);
-
+  
+  //Build player's character
   this.character = player.character.load();
 
+  //Determines whether the player or enemy logic fires
   this.playerTurn = true;
 
+  //Prompts for battle choices
   this.questions = [
         {
           type: 'list',
@@ -36,14 +40,17 @@ function Battle(enemy){
               this.character.magic.abilities[1],
               new inquirer.Separator('=== Divine ==='),
               this.character.divine.abilities[0],
-              this.character.divine.abilities[1]
+              this.character.divine.abilities[1],
+              new inquirer.Separator('=== Game Options ==='),
+              'Exit',
           ],
           filter: function(val) {
             return val.toLowerCase();
           }
         }
     ];
-
+  
+    //This keeps the battle loop running until player succeeds or fails.
   this.run = (character, enemy) => {
     if (this.playerTurn === true) {
       this.playerTurn = false;
@@ -58,6 +65,7 @@ function Battle(enemy){
     }
   };
 
+  //Processes the players decision then determines the resolution. 
   this.handle = (answer, character, enemy) => {
     // console.log(answer);
     // console.log(character);
@@ -155,7 +163,7 @@ function Battle(enemy){
         break;
 
       default:
-            print.text.normal("Something is wrong");
+            print.text.normal("Farewell adventurer!");
 
     }
   };
