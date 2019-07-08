@@ -229,7 +229,7 @@ function Battle(enemy){
       this.playerWins(character, enemy);
     }
     else if (character.hitPoints <= 0 && enemy.healthPoints > 0){
-      this.enemyWins(character, enemy);
+      this.enemyWins(enemy);
     }
     else {
       this.run(this.character, this.enemy);
@@ -245,8 +245,7 @@ function Battle(enemy){
   };
 
   this.enemyWins = function(enemy){
-    console.log('Enemy wins!');
-    print.text.narration('The ' + enemy.name + ' rat has defeated you.');
+    print.text.narration('The ' + enemy.name + ' has defeated you.');
 
     inquirer.prompt(
       [

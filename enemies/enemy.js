@@ -19,10 +19,10 @@ function Enemy(enemy){
       break;
     case "cheater":
       this.name = enemy;
-      this.healthPoints = 50;
+      this.healthPoints = 5;
       this.armorPoints = 10;
-      this.attackRoll = 40;
-      this.damageRoll = 50;
+      this.attackRoll = () => {return 4};
+      this.damageRoll = () => {return 1};
       break;
     default:
       console.log("Something went wrong here.");
