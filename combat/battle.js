@@ -6,6 +6,7 @@ const print = require('../helpers/printer.js');
 const player = require('../character/createCharacter.js');
 const dice = require('../rolls.js');
 const chalkPipe = require(`chalk-pipe`);
+const loot = require(`../looter/loot.js`);
 
 // Object below runs the entire battle logic. 
 function Battle(enemy){
@@ -239,8 +240,7 @@ function Battle(enemy){
 
   this.playerWins = function(character){
     console.log('Player wins!');
-    //loot
-    //
+    loot.treasure.gold();
     
   };
 
