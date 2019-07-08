@@ -1,3 +1,4 @@
+const print = require('../helpers/printer.js');
 const tavern = require(`./tavern.js`);
 const Battle = require(`../combat/battle.js`);
 
@@ -17,6 +18,8 @@ exports.room = {
       case `Check the chest.`:
         console.log(`You open the chest.`);
         break;
+      case `Exit Game.` :
+        print.text.narration(`Farewell adventurer!`);
       default:
         console.log(`Something went wrong!`);
     }
@@ -30,6 +33,8 @@ exports.room = {
       case `Southern Door`:
         console.log(`You find that the door is locked. Only one way to go.`);
         break;
+      case `Exit Game.` :
+        print.text.narration(`Farewell adventurer!`);
       default:
         console.log(`Something went wrong!`);
     }

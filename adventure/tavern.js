@@ -12,7 +12,8 @@ exports.launch = {
       chalkPipe('gray')("What do you do next?"),
       ["Go through the open door.",
       "Fight the rat.",
-      "Check the chest."],
+      "Check the chest.",
+      "Exit Game"],
       'tavern',
       1,
       resolve.room.adventureOneRoomOne);
@@ -27,7 +28,8 @@ exports.launch = {
       chalkPipe('yellow')("You walk into a empty room. There is a open door to the north and another door to the south."),
       chalkPipe('gray')("What door do you go through?"),
       ["Northern Door",
-      "Southern Door"],
+      "Southern Door",
+      "Exit Game"],
       'tavern',
       2
       );
