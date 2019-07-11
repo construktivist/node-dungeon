@@ -240,7 +240,7 @@ function Battle(enemy){
 
   this.playerWins = function(character){
     console.log('Player wins!');
-    loot.treasure.gold();
+    loot.treasure.gold(character);
     
   };
 
