@@ -8,6 +8,7 @@ function Character(name, race, weapons, armor, trinket, gameStatus){
   this.weapons = weapons;
   this.armor = armor;
   this.trinket = trinket;
+  this.gold = 50;
   this.warrior = {
     abilities: [`Power Attack`, `Shield Wall`],
     bonus: 0,

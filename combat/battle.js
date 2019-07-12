@@ -241,7 +241,8 @@ function Battle(enemy){
   this.playerWins = function(character){
     console.log('Player wins!');
     loot.treasure.gold(character);
-    
+    character.save();
+    console.log(character);
   };
 
   this.enemyWins = function(enemy){

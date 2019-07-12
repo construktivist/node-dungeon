@@ -13,10 +13,7 @@ exports.treasure = {
             :   treasure = dice.roll.d20();
 
         print.text.narration("You received " + treasure + " gold!");
-        console.log(typeof treasure);
-        console.log(typeof character.gold);
-        console.log(character.gold += treasure);
-        console.log(character.gold);
-
+        character.gold += treasure
+        print.text.narration("You now have a total of " + character.gold + " gold!");
     }, 
 }
