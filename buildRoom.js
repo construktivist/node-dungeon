@@ -11,6 +11,7 @@ function Room(intro, question, prompts, campaign, room, resolve){
   this.prompts = prompts;
   this.campaign = campaign;
   this.room = room;
+  this.nextRoom = room + 1;
   this.resolve = resolve;
   this.character = player.character.load();
 

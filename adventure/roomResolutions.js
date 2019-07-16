@@ -1,6 +1,7 @@
 const print = require('../helpers/printer.js');
 const tavern = require(`./tavern.js`);
 const Battle = require(`../combat/battle.js`);
+const campaign = require(`../campaign/campaignSelect.js`);
 
 exports.room = {
 
@@ -8,7 +9,7 @@ exports.room = {
     switch (answer) {
       case `Go through the open door.`:
         print.text.narration(`You move through the open doorway.`);
-        tavern.launch.adventureOneRoomTwo();
+        campaign.select.launch(this.campaign, this.nextRoom);
         break;
       case `Fight the rat.`:
         print.text.narration(`You fight the rat.`);
