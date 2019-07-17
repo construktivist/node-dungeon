@@ -20,7 +20,6 @@ function Room(intro, question, prompts, campaign, room, resolve){
 
     //This part saves the campaign and room to the character so the player can resume from the point they left off.
     this.character.save(this.character, this.campaign, this.room);
-    console.log(this.character.gameStatus);
 
     //Intro description and inquirer function that displays room description and room options
     print.text.narration(this.intro);
@@ -34,7 +33,7 @@ function Room(intro, question, prompts, campaign, room, resolve){
         },
       ]
     ).then(answers => {
-        this.resolve(answers.decision);
+        this.resolve(answers.decision, this.campaign, this.nextRoom);
       }
     );
   };
