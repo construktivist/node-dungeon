@@ -9,7 +9,6 @@ exports.room = {
     switch (answer) {
       case `Go through the open door.`:
         print.text.narration(`You move through the open doorway.`);
-        // console.log(campaign + '' + nextRoom)
         continueAdventure.select.launch(campaign, nextRoom);
         break;
       case `Fight the rat.`:
