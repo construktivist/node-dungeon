@@ -228,7 +228,7 @@ function Battle(enemy){
   this.checkHealth = function(character, enemy){
 
     if (character.hitPoints > 0 && enemy.healthPoints <= 0){
-      this.playerWins(character, enemy);
+      this.playerWins(character);
     }
     else if (character.hitPoints <= 0 && enemy.healthPoints > 0){
       this.enemyWins(enemy);
@@ -240,12 +240,12 @@ function Battle(enemy){
   };
 
   this.playerWins = function(character){
-    console.log('Player wins!');
-    console.log(character);
-    loot.treasure.gold(character);
+    print.text.narration('Player wins!');
+    // loot.treasure.gold(character);
     character.save();
     console.log(character);
-    // continueAdventure.select.launch(campaign, nextRoom);
+    // console.log(character.gameStatus[1] + 1);
+    continueAdventure.select.launch('tavern', 2);
   };
 
   this.enemyWins = function(enemy){
