@@ -7,7 +7,7 @@ const player = require('../character/createCharacter.js');
 const dice = require('../rolls.js');
 const chalkPipe = require(`chalk-pipe`);
 const loot = require(`../looter/loot.js`);
-const continueAdventure = require(`../campaign/campaignSelect.js`);
+
 
 // Object below runs the entire battle logic. 
 function Battle(enemy){
@@ -243,8 +243,8 @@ function Battle(enemy){
     print.text.narration('Player wins!');
     loot.treasure.gold(character);
     console.log(character.gold);
-    character.save(character, character.gameStatus[0], character.gameStatus[1]);
-    continueAdventure.select.launch(character.gameStatus[0], character.gameStatus[1] + 1 );
+    character.save(character, character.gameStatus[0], character.gameStatus[1], true);
+    
   };
 
   this.enemyWins = function(enemy){

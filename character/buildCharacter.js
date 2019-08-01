@@ -1,5 +1,6 @@
 const fs = require(`fs`);
 const dice = require(`../rolls.js`);
+const continueAdventure = require(`../campaign/campaignSelect.js`);
 
 
 function Character(name, race, weapons, armor, trinket, gameStatus){
@@ -32,12 +33,14 @@ function Character(name, race, weapons, armor, trinket, gameStatus){
 
   this.attackRoll = () => { return dice.roll.d20()};
 
-  this.save = (character, campaign, room) => {
+  this.save = (character, campaign, room, progress) => {
     this.gameStatus[0] = campaign;
     this.gameStatus[1] = room;
     fs.writeFile(`./data/character.js`, JSON.stringify(character), (err) => {
       if (err) throw err;
       console.log("Character Saved!");
+      if (progress === true) continueAdventure.select.launch(campaign, room + 1 ); 
+
     });
   };
 }
