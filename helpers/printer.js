@@ -24,6 +24,16 @@ exports.text = {
     console.log(string);
   },
 
+  error: (string) => {
+    console.log(
+      chalkPipe('red')(
+        "========================== \n" +
+        string + "\n" +
+        "========================== \n"
+        )
+    );
+  },
+
   narration: (string) => {
     console.log(chalkPipe('yellow')(string));
   },

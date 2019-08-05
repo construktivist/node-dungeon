@@ -14,7 +14,7 @@ exports.select = {
             tavern.launch.adventureOneRoomThree();
             break;
           default:
-            print.text.normal(`Oops. Something went wrong :/`);
+            print.text.error(`Oops. Something went wrong :/`);
         }
       }
      else if (campaign === 'goblins') {

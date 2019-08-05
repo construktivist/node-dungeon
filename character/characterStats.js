@@ -17,7 +17,7 @@ exports.stats = {
           player.hitPointsTotal = 18;
           break;
       default:
-        print.text.normal(`Oops. Something went wrong :/ - race`)
+        print.text.error(`Oops. Something went wrong :/ - race`)
     }
   },
 
@@ -40,7 +40,7 @@ exports.stats = {
           player.shield = 2;
         break;
         default:
-          print.text.normal(`Oops. Something went wrong :/ - weapon`);
+          print.text.error(`Oops. Something went wrong :/ - weapon`);
       }
     }
   },
@@ -64,7 +64,7 @@ exports.stats = {
             player.divine.bonus += 2
         break;
         default:
-          print.text.normal(`Oops. Something went wrong :/ - armor`);
+          print.text.error(`Oops. Something went wrong :/ - armor`);
     }
   },
 
@@ -84,7 +84,7 @@ exports.stats = {
             player.magic.bonus += 1
         break;
         default:
-          print.text.normal(`Oops. Something went wrong :/ - trinket`);
+          print.text.error(`Oops. Something went wrong :/ - trinket`);
     }
   }
 

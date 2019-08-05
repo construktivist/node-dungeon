@@ -36,7 +36,7 @@ exports.main = {
           print.text.normal(`Farewell adventurer!`);
           break;
         default:
-          print.text.normal(`Oops. Something went wrong :/`);
+          print.text.error(`Oops. Something went wrong :/`);
       };
     });
   },
@@ -44,7 +44,6 @@ exports.main = {
   //Function to load. This can be used globally.
   load: function () {
     const character = player.character.load();
-    console.log(character);
-    character.gameStatus.length > 0 ? campaign.select.launch(character.gameStatus[0], character.gameStatus[1]) : console.log(`Error: No save data available.`);
+    character.gameStatus.length > 0 ? campaign.select.launch(character.gameStatus[0], character.gameStatus[1]) : print.text.error(`Error: No save data available.`);
   }
 }
