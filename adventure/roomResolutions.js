@@ -1,6 +1,7 @@
 const print = require('../helpers/printer.js');
 const tavern = require(`./tavern.js`);
 const Battle = require(`../combat/battle.js`);
+const loot = require(`../looter/loot.js`);
 const continueAdventure = require(`../campaign/campaignSelect.js`);
 
 exports.room = {
@@ -18,6 +19,7 @@ exports.room = {
         break;
       case `Check the chest.`:
         print.text.narration(`You open the chest.`);
+        loot.treasure.chest(character);
         break;
       case `Exit Game.` :
         print.text.narration(`Farewell adventurer!`);
