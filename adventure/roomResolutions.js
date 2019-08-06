@@ -19,7 +19,6 @@ exports.room = {
         break;
       case `Check the chest.`:
         print.text.narration(`You open the chest.`);
-        loot.treasure.chest(character);
         break;
       case `Exit Game.` :
         print.text.narration(`Farewell adventurer!`);
