@@ -3,12 +3,13 @@ const dice = require(`../rolls.js`);
 const continueAdventure = require(`../campaign/campaignSelect.js`);
 
 
-function Character(name, race, weapons, armor, trinket, gameStatus, gold){
+function Character(name, race, weapons, armor, trinket, gameStatus, pack, gold){
   this.name = name;
   this.race = race;
   this.weapons = weapons;
   this.armor = armor;
   this.trinket = trinket;
+  this.pack = [];
   this.gold = gold;
   this.warrior = {
     abilities: [`Power Attack`, `Shield Wall`],

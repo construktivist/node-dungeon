@@ -81,7 +81,7 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      const playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket, [], 50);
+      const playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket, [], [], 50);
 
       this.buildCharacter(playerCharacter);
       this.confirm(chalkPipe('gray')(`Do you want to use this character?`), playerCharacter);
