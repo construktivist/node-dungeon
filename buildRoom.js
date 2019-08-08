@@ -20,8 +20,10 @@ function Room(intro, question, prompts, campaign, room, resolve){
 
     //This part saves the campaign and room to the character so the player can resume from the point they left off.
     console.log(this.character.gold);
+    console.log(this.character.pack);
     this.character.save(this.character, this.campaign, this.room, false);
     console.log(this.character.gold);
+    console.log(this.character.pack);
 
     //Intro description and inquirer function that displays room description and room options
     print.text.narration(this.intro);

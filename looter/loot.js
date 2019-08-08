@@ -26,7 +26,9 @@ exports.treasure = {
         : loot = 'box of jewels'
 
         print.text.narration('You received a ' + loot);
+        console.log(character);
         character.pack.push(loot);
-        console.log(character.pack);
+        console.log(character);
+        character.save(character, character.gameStatus[0], character.gameStatus[1], true);
     }
 }

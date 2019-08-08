@@ -81,15 +81,15 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      const playerCharacter = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket, [], [], 50);
+      const character = new Character(answers.name, answers.race, answers.weapons, answers.armor, answers.trinket, [], [], 50);
 
-      this.buildCharacter(playerCharacter);
-      this.confirm(chalkPipe('gray')(`Do you want to use this character?`), playerCharacter);
+      this.buildCharacter(character);
+      this.confirm(chalkPipe('gray')(`Do you want to use this character?`), character);
 
       });
   },
 
-  confirm: function(message, playerCharacter){
+  confirm: function(message, character){
     inquirer.prompt(
       [
         {
@@ -100,32 +100,12 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.confirmAgain(chalkPipe('gray')(`Are you sure you want to build another character?`), playerCharacter) :
-      fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter), (err) => {
-        if (err) throw err;
-        campaign.select.launch('tavern', 1);
-      });
+      !answers.characterConfirmation ? this.confirmAgain(chalkPipe('gray')(`Are you sure you want to build another character?`), character) :
+      character.save(character, 'tavern', 1, true);
     });
   },
 
-  load: function(){
-    const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
-    const playerCharacter = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket, characterData.gameStatus, characterData.gold);
-
-    this.buildCharacter(playerCharacter);
-    return playerCharacter;
-
-  },
-
-  buildCharacter: function(character){
-    setPlayerStats.stats.static(character);
-    setPlayerStats.stats.weapons(character);
-    setPlayerStats.stats.armor(character);
-    setPlayerStats.stats.trinkets(character);
-    print.text.playerStats(character);
-  },
-
-  confirmAgain: function(message, playerCharacter){
+  confirmAgain: function(message, character){
     inquirer.prompt(
       [
         {
@@ -137,11 +117,25 @@ exports.character = {
       ]
     ).then(answers => {
       !answers.characterConfirmation ? this.new() :
-        fs.writeFile(`./data/character.js`, JSON.stringify(playerCharacter), (err) => {
-          if (err) throw err;
-          campaign.select.launch('tavern', 1);
-        });
+      character.save(character, 'tavern', 1, true);
     });
-  }
+  },
+
+  load: function(){
+    const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
+    const character = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket, characterData.gameStatus, characterData.gold);
+
+    this.buildCharacter(character);
+    return character;
+
+  },
+
+  buildCharacter: function(character){
+    setPlayerStats.stats.static(character);
+    setPlayerStats.stats.weapons(character);
+    setPlayerStats.stats.armor(character);
+    setPlayerStats.stats.trinkets(character);
+    print.text.playerStats(character);
+  },
 
 };
