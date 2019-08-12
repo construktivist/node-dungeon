@@ -101,7 +101,7 @@ exports.character = {
       ]
     ).then(answers => {
       !answers.characterConfirmation ? this.confirmAgain(chalkPipe('gray')(`Are you sure you want to build another character?`), character) :
-      character.save(character, 'tavern', 1, true);
+      character.save(character, 'tavern', 0, true);
     });
   },
 
@@ -117,7 +117,7 @@ exports.character = {
       ]
     ).then(answers => {
       !answers.characterConfirmation ? this.new() :
-      character.save(character, 'tavern', 1, true);
+      character.save(character, 'tavern', 0, true);
     });
   },
 
