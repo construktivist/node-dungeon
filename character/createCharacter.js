@@ -123,7 +123,7 @@ exports.character = {
 
   load: function(){
     const characterData = JSON.parse(fs.readFileSync('./data/character.js'));
-    const character = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket, characterData.gameStatus, characterData.gold);
+    const character = new Character(characterData.name, characterData.race, characterData.weapons, characterData.armor, characterData.trinket, characterData.gameStatus, characterData.pack, characterData.gold);
 
     this.buildCharacter(character);
     return character;
