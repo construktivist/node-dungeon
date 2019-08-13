@@ -20,9 +20,9 @@ exports.treasure = {
     chest: function(character){
         let roll = dice.roll.d20();
 
-        roll < 6 ? loot = 'pile of garbage'
-        : roll < 11 ? loot = 'stack of books'
-        : roll < 16 ? loot = 'bag of teeth'
+        roll < 6 ? loot = 'Pile of Garbage'
+        : roll < 11 ? loot = 'Stack of Books'
+        : roll < 16 ? loot = 'Bag of Teeth'
         : loot = 'box of jewels'
 
         print.text.narration('You received a ' + loot);

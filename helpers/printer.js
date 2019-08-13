@@ -42,8 +42,8 @@ exports.text = {
     console.log(
       chalkPipe('green.bold')(
       "--------------------------- \n" +
-      "Character Name: " + player.name + "\n" +
-      "Race: " + player.race + "\n" +
+      "Character Name: " + player.name[0].toUpperCase() + player.name.slice(1) + "\n" +
+      "Race: " + player.race[0].toUpperCase() + player.race.slice(1) + "\n" +
       "Hit Points: " + player.hitPoints + "\n" +
       "Armor Class: " + player.armorPoints + "\n" +
       "Warrior Bonus: " + player.warrior.bonus + "\n" +
@@ -51,10 +51,11 @@ exports.text = {
       "Magic Bonus: " + player.magic.bonus + "\n" +
       "Divine Bonus: " + player.divine.bonus + "\n" +
       "Inventory: " +
-        player.weapons[0] + " " +
-        player.weapons[1] + " " +
-        player.armor + " " +
-        player.trinket + "\n"));
+        player.weapons[0] + ", " +
+        player.weapons[1] + ", " +
+        player.armor[0].toUpperCase() + player.armor.slice(1) + ", " +
+        player.trinket[0].toUpperCase() + player.trinket.slice(1) + ", " + 
+        player.pack + "\n"));
   },
 
   enemyStats: (enemy) => {
