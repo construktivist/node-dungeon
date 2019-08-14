@@ -10,9 +10,9 @@ exports.launch = {
     const roomOne = new Room(
       chalkPipe('yellow')("You wake up in the dark basement of a tavern. There is a rat sniffing some trash in the corner. You see an open door to the west and a chest next on a table against the wall."),
       chalkPipe('gray')("What do you do next?"),
-      ["Go through the open door.",
-      "Fight the rat.",
-      "Check the chest.",
+      ["Go through the open door",
+      "Fight the rat",
+      "Check the chest",
       "Exit Game"],
       'tavern',
       1,
@@ -31,8 +31,8 @@ exports.launch = {
       "Southern Door",
       "Exit Game"],
       'tavern',
-      2
-      );
+      2,
+      resolve.room.adventureOneRoomTwo);
 
       roomTwo.runRoom();
 
