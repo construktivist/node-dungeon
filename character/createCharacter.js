@@ -116,8 +116,8 @@ exports.character = {
         },
       ]
     ).then(answers => {
-      !answers.characterConfirmation ? this.new() :
-      character.save(character, 'tavern', 0, true);
+      !answers.secondCharacterConfirmation ? character.save(character, 'tavern', 0, true) :
+      this.new();
     });
   },
 
