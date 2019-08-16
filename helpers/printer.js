@@ -50,6 +50,7 @@ exports.text = {
       "Rogue Bonus: " + player.rogue.bonus + "\n" +
       "Magic Bonus: " + player.magic.bonus + "\n" +
       "Divine Bonus: " + player.divine.bonus + "\n" +
+      "Gold: " + player.gold + "\n" +
       "Inventory: " +
         player.weapons[0] + ", " +
         player.weapons[1] + ", " +
