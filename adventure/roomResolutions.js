@@ -14,7 +14,7 @@ exports.room = {
         break;
       case `Fight the rat`:
         print.text.narration(`You fight the rat.`);
-        battle = new Battle(`cheater`);
+        battle = new Battle(`rat`);
         battle.run();
         break;
       case `Check the chest`:
@@ -30,13 +30,14 @@ exports.room = {
     }
   },
 
-  adventureOneRoomTwo: (answer) => {
+  adventureOneRoomTwo: (answer, campaign, nextRoom) => {
     switch (answer) {
       case `Northern Door`:
-        print.text.narration(`You move through the open doorway to the North.`);
+        continueAdventure.select.launch(campaign, nextRoom);
         break;
       case `Southern Door`:
         print.text.narration(`You find that the door is locked. Only one way to go.`);
+        continueAdventure.select.launch(campaign, nextRoom);
         break;
       case `Exit Game`:
         print.text.narration(`Farewell adventurer!`);
@@ -45,5 +46,20 @@ exports.room = {
         console.log(answer);
         print.text.narration(`Something went wrong!`);
     }
-  }
+  },
+
+  adventureOneRoomThree: (answer) => {
+    switch (answer) {
+      case 'Check the chest':
+        print.text.narration('You open the chest and find...');
+        loot.treasure.chest(player.character.load());
+        break;
+      case 'Fight the ogre':
+        print.text.narration(`You fight the ogre.`);
+        battle = new Battle(`ogre`);
+        battle.run();
+      case 'Leave the tavern':
+        print.text.narration('You decide it is best to leave now and rush out the door. Congratulations you escaped!');
+    }
+  },
 };

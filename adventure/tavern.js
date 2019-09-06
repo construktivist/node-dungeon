@@ -52,7 +52,6 @@ exports.launch = {
       resolve.room.adventureOneRoomThree);
       
       roomThree.runRoom();
-    )
   }
 
 
