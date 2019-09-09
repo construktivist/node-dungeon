@@ -1,4 +1,5 @@
-const tavern = require(`../adventure/tavern.js`);
+const print = require('../helpers/printer.js')
+const tavern = require('../adventure/tavern.js');
 
 exports.select = {
   launch: (campaign, room) => {
@@ -12,6 +13,9 @@ exports.select = {
             break;
           case 3:
             tavern.launch.adventureOneRoomThree();
+            break;
+          case 4:
+            print.text.narration('You put the abandoned tavern behind you and continue on the road to your next adventure.')
             break;
           default:
             print.text.error(`Oops. Something went wrong :/`);

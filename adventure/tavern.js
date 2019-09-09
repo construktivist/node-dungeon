@@ -42,7 +42,7 @@ exports.launch = {
 
     const roomThree = new Room(
       chalkPipe('yellow')("You open the Northern door and walk up a flight of steps that takes you to the tavern's main floor. There is an ogre sleeping in the center of the room and a closed chest next to him. Past the ogre is a door that leads out of the cavern."),
-      chalkPip('gray')("What will you do?"),
+      chalkPipe('gray')("What will you do?"),
       ["Check the chest",
       "Fight the ogre",
       "Leave the tavern",

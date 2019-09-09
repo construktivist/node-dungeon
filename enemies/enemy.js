@@ -17,6 +17,13 @@ function Enemy(enemy){
       this.attackRoll = () => {return dice.roll.d20()};
       this.damageRoll = () => {return dice.roll.d6()};
       break;
+    case "ogre":
+      this.name = enemy;
+      this.healthPoints = dice.roll.d10();
+      this.armorPoints = dice.roll.d8();
+      this.attackRoll = () => {return dice.roll.d20()};
+      this.damageRoll = () => {return dice.roll.d10()};
+      break;
     case "cheater":
       this.name = enemy;
       this.healthPoints = 5;
