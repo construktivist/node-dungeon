@@ -27,7 +27,7 @@ exports.treasure = {
 
         print.text.narration('You received a ' + loot);
         character.pack.push(loot);
-        print.text.narration('You stow the ' + loot + ' in your pack and enter the next room.');
+        print.text.narration('You stow the ' + loot + ' in your pack and leave the room.');
         character.save(character, character.gameStatus[0],character.gameStatus[1], true);
     }
 }
