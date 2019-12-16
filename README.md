@@ -7,4 +7,5 @@ https://help.github.com/en/articles/cloning-a-repository
 - Download and install the latest version of Node.js 
 https://nodejs.org/en/download/
 - Open Terminal or Command Prompt in the file location Node Dungeon was cloned or placed in.
+- Run `npm install` and wait for the node modules to be installed.
 - Run `node app.js` in the Terminal or Command Prompt
